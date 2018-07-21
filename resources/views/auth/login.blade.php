@@ -6,6 +6,13 @@
     <form class="form-horizontal" method="POST" action="{{ route('login') }}">
         {{ csrf_field() }}
 
+        <div class="form-group">
+            <select name="role" id="" class="form-control">
+                <option value="20">Satker</option>
+                <option value="30">Admin BPJS</option>
+            </select>
+        </div>
+
         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
             <label for="email" class="text-normal text-dark">Email</label>
             <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus>
