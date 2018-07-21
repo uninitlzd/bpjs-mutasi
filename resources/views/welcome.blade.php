@@ -1,95 +1,155 @@
-<!doctype html>
-<html lang="{{ app()->getLocale() }}">
+<!DOCTYPE HTML>
+<!--
+    Hielo by TEMPLATED
+    templated.co @templatedco
+    Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
     <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <title>Laravel</title>
-
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
-
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Raleway', sans-serif;
-                font-weight: 100;
-                height: 100vh;
-                margin: 0;
-            }
-
-            .full-height {
-                height: 100vh;
-            }
-
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-
-            .position-ref {
-                position: relative;
-            }
-
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
-
-            .content {
-                text-align: center;
-            }
-
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 12px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
+        <title>SEDAPEN BPJS Kesehatan</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="{{ asset('ui/assets/css/main.css') }}" />
     </head>
     <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-                        <a href="{{ route('register') }}">Register</a>
-                    @endauth
-                </div>
-            @endif
 
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
-                </div>
+        <!-- Header -->
+            <header id="header" class="alt">
+                <div class="logo"><a href="index.html">SEDAPEN <span>BPJS Kesehatan</span></a></div>
+                <a href="#menu">Menu</a>
+            </header>
 
-                <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+        <!-- Nav -->
+            <nav id="menu">
+                <ul class="links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="generic.html">FORM</a></li>
+                    <li><a href="elements.html">FAQ</a></li>
+                </ul>
+            </nav>
+
+        <!-- Banner -->
+            <section class="banner full">
+                <article>
+                    <img src="{{ asset('ui/images/logobpjs.jpg') }}" alt="" />
+                    <div class="inner">
+                    </div>
+                </article>
+                <article>
+                    <img src="{{ asset('ui/images/bpjs1.jpg') }}" alt="" />
+                    <div class="inner">
+                    </div>
+                </article>
+                <article>
+                    <img src="{{ asset('ui/images/bpjs2.jpg') }}" alt="" />
+                    <div class="inner">
+                    </div>
+                </article>
+                <article>
+                    <img src="{{ asset('ui/images/bpjs3.jpg') }}"  alt="" />
+                    <div class="inner">
+                    </div>
+                </article>
+                <article>
+                    <img src="{{ asset('ui/images/bpjs4.jpg') }}"  alt="" />
+                    <div class="inner">
+                    </div>
+                </article>
+            </section>
+
+        <!-- One -->
+            <section id="one" class="wrapper style2">
+                <div class="inner">
+                    <div class="grid-style">
+
+                        <div>
+                            <div class="box">
+                                <div class="image fit">
+                                    <img src="{{ asset('ui/images/bpjs2.jpg') }}" alt="" />
+                                </div>
+                                <div class="content">
+                                    <header class="align-center">
+                                        <p>BPJS Kesehatan</p>
+                                        <h2>Kami pahlawan bagi sesama</h2>
+                                    </header>
+                                    <p> Dengan menjadi peserta program JKN-KIS berarti Anda telah menjadi pahlawan bagi sesama demi Indonesia yang sehat dan sejahtera.
+                                    Mari lindungi diri sendiri dan orang lain dengan gotong royong semua tertolong.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="box">
+                                <div class="image fit">
+                                    <img src="{{ asset('ui/images/bpjs3.jpg') }}" alt="" />
+                                </div>
+                                <div class="content">
+                                    <header class="align-center">
+                                        <p>BPJS Kesehatan</p>
+                                        <h2>50 tahun Gotong Royong Untuk Indonesia</h2>
+                                    </header>
+                                    <p>DAMAR CANTIK 50 tahun Gotong Royong Untuk Indonesia</p>                                   
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
-            </div>
-        </div>
+            </section>
+
+        <!-- Two -->
+            <section id="three" class="wrapper style2">
+                <div class="inner">
+                    <header class="align-center">
+                        <p class="special">Badan Penyelenggara Jaminan Sosial Kesehatan</p>
+                        <h2>SEDAPEN</h2>
+                    </header>
+                    <div class="gallery">
+                        <div>
+                            <div class="image fit">
+                                <a href="#"><img src="{{ asset('ui/images/bpjs1.jpg') }}" alt="" /></a>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="image fit">
+                                <a href="#"><img src="{{ asset('ui/images/bpjs2.jpg') }}" alt="" /></a>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="image fit">
+                                <a href="#"><img src="{{ asset('ui/images/bpjs3.jpg') }}" alt="" /></a>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="image fit">
+                                <a href="#"><img src="{{ asset('ui/images/bpjs4.jpg') }}" alt="" /></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+        <!-- Footer -->
+            <footer id="footer">
+                <div class="container">
+                    <ul class="icons">
+                        <li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+                        <li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+                        <li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+                        <li><a href="#" class="icon fa-envelope-o"><span class="label">Email</span></a></li>
+                    </ul>
+                </div>
+                <div class="copyright">
+                    &copy; BPJS. All rights reserved.
+                </div>
+            </footer>
+
+        <!-- Scripts -->
+            <script src="{{ asset('ui/assets/js/jquery.min.js') }}"></script>
+            <script src="{{ asset('ui/assets/js/jquery.scrollex.min.js') }}"></script>
+            <script src="{{ asset('ui/assets/js/skel.min.js') }}"></script>
+            <script src="{{ asset('ui/assets/js/util.js') }}"></script>
+            <script src="{{ asset('ui/assets/js/main.js') }}"></script>
+
     </body>
 </html>
