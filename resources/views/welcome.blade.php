@@ -87,7 +87,7 @@
                                         <p>BPJS Kesehatan</p>
                                         <h2>50 tahun Gotong Royong Untuk Indonesia</h2>
                                     </header>
-                                    <p>DAMAR CANTIK 50 tahun Gotong Royong Untuk Indonesia</p>                                   
+                                    <p>50 tahun Gotong Royong Untuk Indonesia</p>                                   
                                 </div>
                             </div>
                         </div>
