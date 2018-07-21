@@ -59,18 +59,25 @@ class User extends Authenticatable
     {
         $this->attributes['password'] = bcrypt($value);
     }
-    
+
     public function getAvatarAttribute($value)
     {
         if (!$value) {
-            return 'http://placehold.it/160x160';
+            $url = url('https://png.icons8.com/ultraviolet/40/000000/administrator-male.png');
+            return $url;
         }
-    
+
         return config('variables.avatar.public').$value;
     }
+
     public function setAvatarAttribute($photo)
     {
         $this->attributes['avatar'] = move_file($photo, 'avatar');
+    }
+
+    public function isSuperAdmin()
+    {
+        return $this->attributes['role'] === 30;
     }
 
     /*
@@ -84,7 +91,7 @@ class User extends Authenticatable
         static::updating(function($user)
         {
             $original = $user->getOriginal();
-            
+
             if (\Hash::check('', $user->password)) {
                 $user->attributes['password'] = $original['password'];
             }

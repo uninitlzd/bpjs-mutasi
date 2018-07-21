@@ -8,11 +8,11 @@
 						<div class="peers ai-c fxw-nw">
 							<div class="peer">
 								<div class="logo">
-									<img src="/images/logo.png" alt="">
+									<img src="https://ui-avatars.com/api/?rounded=true&name=bpjs&length=1&background=42c2f4&color=fff" alt="">
 								</div>
 							</div>
 							<div class="peer peer-greed">
-								<h5 class="lh-1 mB-0 logo-text">Laradminator</h5>
+								<h5 class="lh-1 mB-0 logo-text">BPJS Mutasi</h5>
 							</div>
 						</div>
 					</a>

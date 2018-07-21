@@ -1,7 +1,7 @@
-<?php 
+<?php
 
 return [
-    
+
     'boolean' => [
         '0' => 'No',
         '1' => 'Yes',
@@ -9,9 +9,10 @@ return [
 
     'role' => [
         '0' => 'User',
-        '10' => 'Admin',
+        '10' => 'Admin BPJS',
+        '20' => 'Admin Satker'
     ],
-    
+
     'status' => [
         '1' => 'Active',
         '0' => 'Inactive',
@@ -20,7 +21,7 @@ return [
     'avatar' => [
         'public' => '/storage/avatar/',
         'folder' => 'avatar',
-        
+
         'width'  => 400,
         'height' => 400,
     ],

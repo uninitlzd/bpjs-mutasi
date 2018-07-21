@@ -8,13 +8,17 @@ use App\User;
 
 class UserController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
+     * @throws \Illuminate\Auth\Access\AuthorizationException
      */
     public function index()
     {
+        $this->authorize('index', auth()->user());
+
         $items = User::latest('updated_at')->get();
 
         return view('admin.users.index', compact('items'));
@@ -27,6 +31,7 @@ class UserController extends Controller
      */
     public function create()
     {
+        $this->authorize('create');
         return view('admin.users.create');
     }
 
@@ -38,8 +43,9 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
+        $this->authorize('create');
         $this->validate($request, User::rules());
-        
+
         User::create($request->all());
 
         return back()->withSuccess(trans('app.success_store'));
@@ -51,9 +57,10 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(User $user)
     {
-        //
+        $this->authorize($user);
+        return $user;
     }
 
     /**
@@ -62,11 +69,10 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(User $user)
     {
-        $item = User::findOrFail($id);
-
-        return view('admin.users.edit', compact('item'));
+        $this->authorize($user);
+        return view('admin.users.edit', compact('user'));
     }
 
     /**
@@ -97,7 +103,7 @@ class UserController extends Controller
     {
         User::destroy($id);
 
-        return back()->withSuccess(trans('app.success_destroy')); 
+        return back()->withSuccess(trans('app.success_destroy'));
     }
 }
 

@@ -10,16 +10,15 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
     <!-- Styles -->
-	<link href="{{ mix('/css/app.css') }}" rel="stylesheet"> 
-	
+	<link href="{{ mix('/css/app.css') }}" rel="stylesheet">
+
 	@yield('css')
 
 </head>
 
 <body class="app">
-
-    @include('admin.partials.spinner')
 
     <div>
         <!-- #Left Sidebar ==================== -->
@@ -35,9 +34,9 @@
                 <div id='mainContent'>
                     <div class="container-fluid">
 
-                        <h4 class="c-grey-900 mT-10 mB-30">@yield('page-header')</h4>
+                        <h2 class="c-grey-900 mT-10 mB-30 font-weight-light">@yield('page-header')</h2>
 
-						@include('admin.partials.messages') 
+						@include('admin.partials.messages')
 						@yield('content')
 
                     </div>
@@ -46,8 +45,7 @@
 
             <!-- ### $App Screen Footer ### -->
             <footer class="bdT ta-c p-30 lh-0 fsz-sm c-grey-600">
-                <span>Copyright © 2017 Designed by
-                    <a href="https://colorlib.com" target='_blank' title="Colorlib">Colorlib</a>. All rights reserved.</span>
+                <span>Made with <i class="fa fa-heart c-red-500"></i> and <i class="fa fa-code c-blue-500"></i> in East Java</span>
             </footer>
         </div>
     </div>

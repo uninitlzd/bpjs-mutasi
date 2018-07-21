@@ -25,6 +25,7 @@ class Role
         if ($request->user()->role < $role) {
             return abort(404);
         }
+        
         return $next($request);
     }
 }
