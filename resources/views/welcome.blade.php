@@ -24,7 +24,7 @@
                 <ul class="links">
                     <li><a href="{{ url('/') }}">Home</a></li>
                     <li><a href="{{ url('/admin') }}">FORM</a></li>
-                    <li><a href="{{ url('/qna') }}">QnA</a></li>
+                    <li><a href="{{ url('/faq') }}">QnA</a></li>
                 </ul>
             </nav>
 

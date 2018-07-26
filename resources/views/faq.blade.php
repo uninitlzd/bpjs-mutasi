@@ -29,7 +29,7 @@
 			<nav id="menu">
 				<ul class="links">
 					<li><a href="{{ url('/') }}">Home</a></li>
-					<li><a href="{{ url('/qna') }}">QnA</a></li>
+					<li><a href="{{ url('/faq') }}">QnA</a></li>
 					<li><a href="{{ url('/admin') }}">Form</a></li>
 				</ul>
 			</nav>
