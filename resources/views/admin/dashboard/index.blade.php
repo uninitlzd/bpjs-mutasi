@@ -70,7 +70,8 @@ Dashboard
                 <div class="layer w-100">
                     <form action="">
                        <div class="row">
-                           <div class="col-md-9">
+                           <div class="col-md-4">
+                               <label for="">Jenis Mutasi</label>
                                <select name="" id="" class="form form-control">
                                    <option value="1">Identitas</option>
                                    <option value="2">Alamat</option>
@@ -81,7 +82,12 @@ Dashboard
                                    <option value="9">NIP</option>
                                </select>
                            </div>
-                           <div class="col-md-3">
+                           <div class="col-md-4">
+                               <label for="">Jumlah Data</label>
+                               <input type="number" min="1" name="" id="" class="form-control">
+                           </div>
+                           <div class="col-md-4">
+                               <label for="">&ensp;</label>
                                <button class="form-control btn btn-primary">
                                    Buat
                                </button>
@@ -91,6 +97,7 @@ Dashboard
                 </div>
             </div>
         </div>
+
         <div class='col-md-4'>
             <div class="layers bd bgc-white p-20">
                 <div class="layer w-100 mB-10">

@@ -15,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'avatar', 'bio', 'role'
+        'name', 'email', 'password', 'avatar', 'bio', 'role', 'nik'
     ];
 
     /**
@@ -36,7 +36,6 @@ class User extends Authenticatable
     {
         $commun = [
             'email'    => "required|email|unique:users,email,$id",
-            'password' => 'nullable|confirmed',
             'avatar' => 'image',
         ];
 
@@ -46,7 +45,6 @@ class User extends Authenticatable
 
         return array_merge($commun, [
             'email'    => 'required|email|max:255|unique:users',
-            'password' => 'required|confirmed|min:6',
         ]);
     }
 
@@ -96,5 +94,26 @@ class User extends Authenticatable
                 $user->attributes['password'] = $original['password'];
             }
         });
+    }
+
+    public function isSatker()
+    {
+        return $this->attributes['role'] == RoleCode::SATKER_ADMIN;
+    }
+
+    public function isAdmin()
+    {
+
+        return $this->attributes['role'] == RoleCode::BPJS_ADMIN;
+    }
+
+    public static function satker()
+    {
+        return self::where('role', RoleCode::SATKER_ADMIN)->latest();
+    }
+
+    public function passwordNotNull()
+    {
+        return $this->attributes['password'] != null;
     }
 }

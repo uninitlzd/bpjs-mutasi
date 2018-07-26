@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Mail\SatkerPasswordCreated;
 use Illuminate\Http\Request;
 use App\User;
+use Illuminate\Support\Facades\Mail;
 
 class UserController extends Controller
 {
@@ -19,7 +21,7 @@ class UserController extends Controller
     {
         $this->authorize('index', auth()->user());
 
-        $items = User::latest('updated_at')->get();
+        $items = User::satker()->get();
 
         return view('admin.users.index', compact('items'));
     }
@@ -104,6 +106,20 @@ class UserController extends Controller
         User::destroy($id);
 
         return back()->withSuccess(trans('app.success_destroy'));
+    }
+
+    public function viewSetPassword(User $user)
+    {
+        return view('admin.users.edit-password', compact('user'));
+    }
+
+    public function setPassword(Request $request, User $user)
+    {
+        $user->password = $request->password;
+        $user->save();
+
+        Mail::to($user->email)->send(new SatkerPasswordCreated($user, $request->password));
+        return redirect()->back();
     }
 }
 

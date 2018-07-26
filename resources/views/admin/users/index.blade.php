@@ -19,37 +19,40 @@
                 <tr>
                     <th>Name</th>
                     <th>Email</th>
+                    <th>NIK</th>
                     <th>Actions</th>
                 </tr>
             </thead>
-            
+
             <tfoot>
                 <tr>
                     <th>Name</th>
                     <th>Email</th>
+                    <th>NIK</th>
                     <th>Actions</th>
                 </tr>
             </tfoot>
-            
+
             <tbody>
                 @foreach ($items as $item)
                     <tr>
                         <td><a href="{{ route(ADMIN . '.users.edit', $item->id) }}">{{ $item->name }}</a></td>
                         <td>{{ $item->email }}</td>
+                        <td>{{ $item->nik }}</td>
                         <td>
                             <ul class="list-inline">
                                 <li class="list-inline-item">
-                                    <a href="{{ route(ADMIN . '.users.edit', $item->id) }}" title="{{ trans('app.edit_title') }}" class="btn btn-primary btn-sm"><span class="ti-pencil"></span></a></li>
+                                    <a href="{{ route(ADMIN . '.users.view.set-password', $item->id) }}" title="{{ trans('app.edit_title') }}" class="btn btn-primary btn-sm">Set Password</a></li>
                                 <li class="list-inline-item">
                                     {!! Form::open([
                                         'class'=>'delete',
-                                        'url'  => route(ADMIN . '.users.destroy', $item->id), 
+                                        'url'  => route(ADMIN . '.users.destroy', $item->id),
                                         'method' => 'DELETE',
-                                        ]) 
+                                        ])
                                     !!}
 
                                         <button class="btn btn-danger btn-sm" title="{{ trans('app.delete_title') }}"><i class="ti-trash"></i></button>
-                                        
+
                                     {!! Form::close() !!}
                                 </li>
                             </ul>
@@ -57,7 +60,7 @@
                     </tr>
                 @endforeach
             </tbody>
-        
+
         </table>
     </div>
 

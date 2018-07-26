@@ -28,7 +28,7 @@
                 </a>
                 <ul class="dropdown-menu fsz-sm">
                     <li>
-                        <a href="" class="d-b td-n pY-5 bgcH-grey-100 c-grey-700">
+                        <a href="{{ route('admin.users.edit', auth()->user()) }}" class="d-b td-n pY-5 bgcH-grey-100 c-grey-700">
                             <i class="ti-settings mR-10"></i>
                             <span>Setting</span>
                         </a>

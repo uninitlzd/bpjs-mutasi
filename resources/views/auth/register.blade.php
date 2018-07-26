@@ -28,21 +28,15 @@
             @endif
         </div>
 
-        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-            <label for="password" class="text-normal text-dark">password</label>
-            <input id="password" type="password" class="form-control" name="password" required>
+        <div class="form-group{{ $errors->has('nik') ? ' has-error' : '' }}">
+            <label for="nik" class="text-normal text-dark">NIK</label>
+            <input id="nik" type="nik" class="form-control" name="nik" value="{{ old('nik') }}" required>
 
-            @if ($errors->has('password'))
+            @if ($errors->has('nik'))
                 <span class="form-text text-danger">
-                    <small>{{ $errors->first('password') }}</small>
+                    <small>{{ $errors->first('nik') }}</small>
                 </span>
             @endif
-        </div>
-
-        <div class="form-group">
-            <label for="password_confirmation" class="text-normal text-dark">Confirm Password</label>
-            <input id="password_confirmation" type="password" class="form-control" name="password_confirmation" required>
-
         </div>
 
         <div class="form-group">
