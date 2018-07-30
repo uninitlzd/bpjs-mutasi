@@ -88,7 +88,7 @@
                                 <h6 class="lh-1">Buat Form Pindah Faskes</h6>
                             </div>
                             <div class="layer w-100">
-                                <form action="{{ route('form.new.fktp') }}" method="post">
+                                <form action="{{ route('admin.form.new.fktp') }}" method="post">
                                     <div class="row">
                                         <div class="col-md-12">
                                             <button class="form-control btn btn-primary c-white">
@@ -106,7 +106,7 @@
                                 <h6 class="lh-1">Buat Form Tambah Anggota Keluarga Inti</h6>
                             </div>
                             <div class="layer w-100">
-                                <form action="{{ route('form.new.tambah_anggota_keluarga_inti') }}" method="post">
+                                <form action="{{ route('admin.form.new.tambah_anggota_keluarga_inti') }}" method="post">
                                     <div class="row">
                                         <div class="col-md-12">
                                             <button class="form-control btn btn-primary c-white">
