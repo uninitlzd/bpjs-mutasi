@@ -13,6 +13,11 @@ Route::group(['prefix' => ADMIN, 'as' => ADMIN . '.', 'middleware'=>['auth', 'Ro
     Route::resource('users', 'UserController');
     Route::get('users/{user}/set-password', 'UserController@viewSetPassword')->name('users.view.set-password');
     Route::put('users/{user}/set-password', 'UserController@setPassword');
+
+    Route::post('make', 'FormController@make')->name('form.new.mutation');
+    Route::post('make/new', 'FormController@makeNew')->name('form.new');
+    Route::post('make/fktp', 'FormController@makeFKTP')->name('form.new.fktp');
+    Route::post('make/tambah_anggota_keluarga_inti', 'FormController@makeTambahKeluargaInti')->name('form.new.tambah_anggota_keluarga_inti');
 });
 
 Route::get('/', function () {
@@ -24,6 +29,6 @@ Route::get('/faq', function () {
 });
 
 
-Route::get('test/spreadsheet', 'MutationFormController@make');
-
-
+Route::group(['prefix' => 'api', 'namespace' => 'Api'], function () {
+   Route::get('satker', 'SatkerController@index');
+});

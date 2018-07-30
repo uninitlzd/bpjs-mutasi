@@ -15,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'avatar', 'bio', 'role', 'nik'
+        'name', 'email', 'password', 'avatar', 'bio', 'role', 'nik', 'satker_id'
     ];
 
     /**
@@ -107,7 +107,7 @@ class User extends Authenticatable
         return $this->attributes['role'] == RoleCode::BPJS_ADMIN;
     }
 
-    public static function satker()
+    public static function getSatker()
     {
         return self::where('role', RoleCode::SATKER_ADMIN)->latest();
     }
@@ -115,5 +115,10 @@ class User extends Authenticatable
     public function passwordNotNull()
     {
         return $this->attributes['password'] != null;
+    }
+
+    public function satker()
+    {
+        return $this->belongsTo(Satker::class);
     }
 }

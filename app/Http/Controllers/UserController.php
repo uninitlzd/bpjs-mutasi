@@ -21,7 +21,7 @@ class UserController extends Controller
     {
         $this->authorize('index', auth()->user());
 
-        $items = User::satker()->get();
+        $items = User::getSatker()->get();
 
         return view('admin.users.index', compact('items'));
     }

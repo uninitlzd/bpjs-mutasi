@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Mail\SatkerPasswordCreated;
 use App\RoleCode;
 use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
@@ -62,6 +64,7 @@ class RegisterController extends Controller
         return Validator::make($data, [
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
+            'satker' => 'required|exists:satker,id'
         ]);
     }
 
@@ -73,12 +76,17 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        $password = substr(sha1(time()), 0, 6);
+        $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'nik' => $data['nik'],
-            'password' => null,
-            'role' => RoleCode::SATKER_ADMIN
+            'password' => $password,
+            'role' => RoleCode::SATKER_ADMIN,
+            'satker_id' => $data['satker']
         ]);
+
+        Mail::to($user->email)->send(new SatkerPasswordCreated($user, $password));
+        return $user;
     }
 }
