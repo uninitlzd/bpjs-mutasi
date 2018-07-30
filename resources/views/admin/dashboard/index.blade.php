@@ -70,7 +70,7 @@
                                 <h6 class="lh-1">Buat Form Data Baru</h6>
                             </div>
                             <div class="layer w-100">
-                                <form action="{{ route('form.new') }}" method="POST">
+                                <form action="{{ route('admin.form.new') }}" method="POST">
                                     <div class="row">
                                         <div class="col-md-12">
                                             <a href="" class="form-control btn btn-primary c-white">
