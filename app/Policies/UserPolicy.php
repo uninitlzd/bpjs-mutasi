@@ -11,6 +11,13 @@ class UserPolicy
 {
     use HandlesAuthorization;
 
+    public function before($user, $ability)
+    {
+        if ($user->isSuperAdmin() || $user->isAdmin()) {
+            return true;
+        }
+    }
+
     public function index(User $user)
     {
         return $user->role == RoleCode::SUPER_ADMIN;

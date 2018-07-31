@@ -3,6 +3,7 @@
 use App\RoleCode;
 use App\User;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class UserSeeder extends Seeder
 {
@@ -17,6 +18,12 @@ class UserSeeder extends Seeder
 
         $data = [
             [
+                'name' => 'Super Admin',
+                'email' => 'superadmin@mail.com',
+                'password' => bcrypt('rahasia'),
+                'role'     => RoleCode::SUPER_ADMIN,
+            ],
+            [
                 'name' => 'Admin BPJS',
                 'email' => 'admin.bpjs@mail.com',
                 'password' => bcrypt('rahasia'),
@@ -30,6 +37,7 @@ class UserSeeder extends Seeder
             ]
         ];
 
+        DB::table('users')->truncate();
         User::insert($data);
     }
 }

@@ -6,13 +6,6 @@
     <form class="form-horizontal" method="POST" action="{{ route('login') }}">
         {{ csrf_field() }}
 
-        <div class="form-group">
-            <select name="role" id="" class="form-control">
-                <option value="20">Satker</option>
-                <option value="30">Admin BPJS</option>
-            </select>
-        </div>
-
         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
             <label for="email" class="text-normal text-dark">Email</label>
             <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus>
@@ -41,7 +34,7 @@
                     <div class="checkbox checkbox-circle checkbox-info peers ai-c">
                         <input type="checkbox" id="remember" name="remember" class="peer" {{ old('remember') ? 'checked' : '' }}>
                         <label for="remember" class=" peers peer-greed js-sb ai-c">
-                            <span class="peer peer-greed">Remember Me</span>
+                            <span class="peer peer-greed">Ingat Saya</span>
                         </label>
                     </div>
                 </div>
@@ -52,12 +45,7 @@
         </div>
         <div class="peers ai-c jc-sb fxw-nw">
             <div class="peer">
-                <a class="btn btn-link" href="{{ route('password.request') }}">
-                    Forgot Your Password?
-                </a>
-            </div>
-            <div class="peer">
-                <a href="/register" class="btn btn-link">Create new account</a>
+                <a href="/register" class="btn btn-link">Buat Akun Baru</a>
             </div>
         </div>
     </form>

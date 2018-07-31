@@ -15,16 +15,16 @@
 
         <!-- Header -->
             <header id="header" class="alt">
-                <div class="logo"><a href="index.html">SEDAPEN <span>BPJS Kesehatan</span></a></div>
+                <div class="logo"><a href="{{ url('/') }}">SEDAPEN <span>BPJS Kesehatan</span></a></div>
                 <a href="#menu">Menu</a>
             </header>
 
         <!-- Nav -->
             <nav id="menu">
                 <ul class="links">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="generic.html">FORM</a></li>
-                    <li><a href="elements.html">FAQ</a></li>
+                    <li><a href="{{ url('/') }}">Home</a></li>
+                    <li><a href="{{ url('/admin') }}">FORM</a></li>
+                    <li><a href="{{ url('/faq') }}">QnA</a></li>
                 </ul>
             </nav>
 
@@ -87,7 +87,7 @@
                                         <p>BPJS Kesehatan</p>
                                         <h2>50 tahun Gotong Royong Untuk Indonesia</h2>
                                     </header>
-                                    <p>50 tahun Gotong Royong Untuk Indonesia</p>                                   
+                                    <p>DAMAR CANTIK 50 tahun Gotong Royong Untuk Indonesia</p>                                   
                                 </div>
                             </div>
                         </div>
