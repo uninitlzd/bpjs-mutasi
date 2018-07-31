@@ -53,29 +53,11 @@
 								<p>SEDAPEN</p>
 								<h2>QnA</h2>
 							</header>
+							@foreach($qna as $item)
 
-							<div class="question"><p><b>Bagaimana alur pengisian form data satker?</b><br>1. Pilihlah berkas excel yang sesuai dengan mutasi anda.</br>2. Unduh berkas</br>3. Isi form data tersebut sesuai dengan ketentuan/tata cara pengisian.<br>4. Simpan berkas dengan format "satker_mutasi".</br>5. Unggah file tersebut dalam bentuk excel.</p>
+							<div class="question"><r><b>{{ $item->pertanyaan }}</b><br>{{ $item->jawaban }}</p>
 							</div>
-
-							<div class="question"><p><b>Bagaimana jika file yang saya upload lebih dari satu?</b><br>Anda bisa mengunggahnya dalam bentuk ZIP ataupun RAR.</br></p>
-							</div>
-
-							<div class="question"><p><b>Apakah saya harus mendownload terlebih dahulu, file excel tersebut untuk mengisi data?</b><br>Iya, dan untuk informasi lebih lanjut akan ada ketentuan di halaman exce sheet pertama.</br></p>
-							</div>
-
-							<div class="question"><p><b>Bagaimana apabila ada data yang belum terisi lengkap?</b><br>Akan ada pemberitahuan yang dikirimkan ke email pengguna/satker.</br></p>
-							</div>
-
-							<div class="question"><p><b>Bagaimana pengguna bisa tahu apabila berkasnya sedang diproses?</b><br>Akan ada pemberitahuan yang dikirimkan ke email pengguna apabila berkasnya sedang diproses.</p>
-							</div>
-
-							<div class="question"><p><b>Bagaimana jika data yang sudah terlanjur saya unggah ternyata ada kesalahan yang perlu direvisi?</b><br>1. Sunting/ubah kolom yang hendak direvisi.<br>2. Beri catatan di bawah form data.<br>
-							<img src="ui/images/qna2.png" alt="" /><br>3. Ubah nama berkas menjadi "[REVISI] NamaSatker_KodeMutasi". Contoh : <img src="images/qna1.png" alt="" /></p>
-
-
-							</div>
-
-
+								@endforeach
 						</div>
 					</div>
 				</div>

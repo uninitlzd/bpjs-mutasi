@@ -15,21 +15,21 @@
 
         <!-- Header -->
             <header id="header" class="alt">
-                <div class="logo"><a href="{{ url('/') }}">SEDAPEN <span>BPJS Kesehatan</span></a></div>
-                <a href="#menu">Menu</a>
+                <div class="logo"><a href="{{ url('/') }}" class="judulmenu" style="font-size: 50px">SEDAPEN <span>BPJS Kesehatan</span></a></div>
+                <a href="#menu" class="linkmenu" style="font-size: 25px">Menu</a>
             </header>
 
         <!-- Nav -->
             <nav id="menu">
                 <ul class="links">
                     <li><a href="{{ url('/') }}">Home</a></li>
-                    <li><a href="{{ url('/admin') }}">FORM</a></li>
+                    <li><a href="{{ url('/admin') }}">MASUK</a></li>
                     <li><a href="{{ url('/faq') }}">QnA</a></li>
                 </ul>
             </nav>
 
         <!-- Banner -->
-            <section class="banner full">
+            <section class="banner" style="height: 85vh">
                 <article>
                     <img src="{{ asset('ui/images/logobpjs.jpg') }}" alt="" />
                     <div class="inner">
@@ -131,14 +131,6 @@
 
         <!-- Footer -->
             <footer id="footer">
-                <div class="container">
-                    <ul class="icons">
-                        <li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
-                        <li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
-                        <li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
-                        <li><a href="#" class="icon fa-envelope-o"><span class="label">Email</span></a></li>
-                    </ul>
-                </div>
                 <div class="copyright">
                     &copy; BPJS. All rights reserved.
                 </div>

@@ -13,6 +13,8 @@ Route::group(['prefix' => ADMIN, 'as' => ADMIN . '.', 'middleware'=>['auth', 'Ro
     Route::resource('users', 'UserController');
     Route::get('users/{user}/set-password', 'UserController@viewSetPassword')->name('users.view.set-password');
     Route::put('users/{user}/set-password', 'UserController@setPassword');
+    Route::resource('feedback','FeedbackController');
+    Route::resource('qna','QNAController');
 
     Route::post('make', 'FormController@make')->name('form.new.mutation');
     Route::post('make/new', 'FormController@makeNew')->name('form.new');
@@ -25,7 +27,8 @@ Route::get('/', function () {
 });
 
 Route::get('/faq', function () {
-    return view('faq');
+    $qna = \App\QNA::get();
+    return view('faq', compact('qna'));
 });
 
 

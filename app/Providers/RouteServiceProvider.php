@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Feedback;
+use App\QNA;
 use App\User;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
@@ -25,6 +27,8 @@ class RouteServiceProvider extends ServiceProvider
     public function boot()
     {
         Route::model('users', User::class);
+        Route::model('feedback', Feedback::class);
+        Route::model('qna', QNA::class);
 
         parent::boot();
     }
