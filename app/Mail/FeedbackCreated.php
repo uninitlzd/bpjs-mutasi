@@ -28,6 +28,6 @@ class FeedbackCreated extends Mailable
      */
     public function build()
     {
-        return $this->markdown('emails.feedback.creted');
+        return $this->markdown('emails.feedback.created');
     }
 }
