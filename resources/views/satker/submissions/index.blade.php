@@ -57,7 +57,7 @@
                     <td>
                         <ul class="list-inline">
                             @if($item->status == App\Models\Submission::REJECTED)
-                            <li class="list-inline-item"><a href="" class="btn btn-info">Lihat Feedback</a></li>
+                            <li class="list-inline-item"><a href="{{ route('admin.submissions.feedback', $item->id) }}" class="btn btn-info">Lihat Feedback</a></li>
                             <li class="list-inline-item"><a href="{{ route('admin.submissions.edit', $item->id) }}" class="btn btn-info">Upload Ulang</a></li>
                             @endif
                             <li class="list-inline-item">

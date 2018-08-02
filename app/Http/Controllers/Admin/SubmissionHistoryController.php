@@ -1,7 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
+use App\Models\Submission;
 use Illuminate\Http\Request;
 
 class SubmissionHistoryController extends Controller
@@ -13,7 +15,8 @@ class SubmissionHistoryController extends Controller
      */
     public function index()
     {
-        //
+        $submissions = Submission::get();
+        return view('admin.submissions.index', compact('submissions'));
     }
 
     /**
@@ -80,5 +83,27 @@ class SubmissionHistoryController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function approve(Submission $submission)
+    {
+        $submission->status = Submission::APPROVED;
+        $submission->save();
+
+        return redirect()->back()->with('success', 'Submission ' . $submission->id . ' Approved');
+    }
+
+    public function getReject(Submission $submission)
+    {
+        return view('admin.submissions.reject', compact('submission'));
+    }
+
+    public function doReject(Request $request, Submission $submission)
+    {
+        $submission->status = Submission::REJECTED;
+        $submission->feedback = $request->feedback;
+        $submission->save();
+
+        return redirect()->route('admin.submission_history.index')->with('Success', 'Data' . $submission->id . 'ditolak');
     }
 }

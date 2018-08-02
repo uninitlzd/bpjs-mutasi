@@ -3,6 +3,9 @@
 namespace App\Providers;
 
 use App\Feedback;
+use App\Models\Submission;
+use App\News;
+use App\PromotionalImages;
 use App\QNA;
 use App\User;
 use Illuminate\Support\Facades\Route;
@@ -29,6 +32,10 @@ class RouteServiceProvider extends ServiceProvider
         Route::model('users', User::class);
         Route::model('feedback', Feedback::class);
         Route::model('qna', QNA::class);
+        Route::model('submission', Submission::class);
+        Route::model('submission_history', Submission::class);
+        Route::model('news', News::class);
+        Route::model('promotional_image', PromotionalImages::class);
 
         parent::boot();
     }

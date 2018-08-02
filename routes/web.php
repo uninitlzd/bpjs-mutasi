@@ -1,5 +1,8 @@
 <?php
 
+use App\News;
+use App\PromotionalImages;
+
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 Auth::routes();
 
@@ -20,14 +23,24 @@ Route::group(['prefix' => ADMIN, 'as' => ADMIN . '.', 'middleware'=>['auth', 'Ro
     Route::post('make/tambah_anggota_keluarga_inti', 'FormController@makeTambahKeluargaInti')->name('form.new.tambah_anggota_keluarga_inti');
 
     Route::resource('submissions', 'SubmissionController');
+    Route::get('submissions/{submission}/feedback', 'SubmissionController@getFeedback')->name('submissions.feedback');
 
     Route::group(['namespace' => 'Admin'], function () {
         Route::resource('qna','QNAController');
+        Route::resource('submission_history', 'SubmissionHistoryController');
+        Route::get('submissions/{submission}/approve', 'SubmissionHistoryController@approve')->name('submission.approve');
+        Route::get('submissions/{submission}/reject', 'SubmissionHistoryController@getReject')->name('submission.view.reject');
+        Route::post('submissions/{submission}/reject', 'SubmissionHistoryController@doReject')->name('submission.reject');
+
+        Route::resource('promotional_images', 'PromotionalImagesController');
+        Route::resource('news', 'NewsController');
     });
 });
 
 Route::get('/', function () {
-    return view('welcome');
+    $news = News::get();
+    $images = PromotionalImages::get();
+    return view('welcome', compact('news', 'images'));
 });
 
 Route::get('/faq', function () {

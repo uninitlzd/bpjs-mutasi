@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\User;
 use Illuminate\Database\Eloquent\Model;
 
 class Submission extends Model
@@ -24,4 +25,9 @@ class Submission extends Model
     public const ON_PROGRESS = 1;
     public const APPROVED = 2;
     public const REJECTED = 3;
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

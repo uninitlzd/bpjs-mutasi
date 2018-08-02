@@ -91,7 +91,7 @@ class SubmissionController extends Controller
 
         $submission->save();
 
-        return redirect()->back();
+        return redirect()->route('admin.submissions.index')->with('success', 'Data telah diupload ulang');
     }
 
     /**
@@ -111,5 +111,10 @@ class SubmissionController extends Controller
         $submission->delete();
 
         return redirect()->back();
+    }
+
+    public function getFeedback(Submission $submission)
+    {
+        return view('satker.submissions.feedback', compact('submission'));
     }
 }

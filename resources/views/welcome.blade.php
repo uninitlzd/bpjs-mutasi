@@ -5,143 +5,118 @@
     Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
 -->
 <html>
-    <head>
-        <title>SEDAPEN BPJS Kesehatan</title>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="stylesheet" href="{{ asset('ui/assets/css/main.css') }}" />
-    </head>
-    <body>
+<head>
+    <title>SEDAPEN BPJS Kesehatan</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" href="{{ asset('ui/assets/css/main.css') }}"/>
+</head>
+<body>
 
-        <!-- Header -->
-            <header id="header" class="alt">
-                <div class="logo"><a href="{{ url('/') }}" class="judulmenu" style="font-size: 50px">SEDAPEN <span>BPJS Kesehatan</span></a></div>
-                <a href="#menu" class="linkmenu" style="font-size: 25px">Menu</a>
-            </header>
+<!-- Header -->
+<header id="header" class="alt">
+    <div class="logo"><a href="{{ url('/') }}" class="judulmenu" style="font-size: 50px">SEDAPEN
+            <span>BPJS Kesehatan</span></a></div>
+    <a href="#menu" class="linkmenu" style="font-size: 25px">Menu</a>
+</header>
 
-        <!-- Nav -->
-            <nav id="menu">
-                <ul class="links">
-                    <li><a href="{{ url('/') }}">Home</a></li>
-                    <li><a href="{{ url('/admin') }}">MASUK</a></li>
-                    <li><a href="{{ url('/faq') }}">QnA</a></li>
-                </ul>
-            </nav>
+<!-- Nav -->
+<nav id="menu">
+    <ul class="links">
+        <li><a href="{{ url('/') }}">Home</a></li>
+        <li><a href="{{ url('/admin') }}">MASUK</a></li>
+        <li><a href="{{ url('/faq') }}">QnA</a></li>
+    </ul>
+</nav>
 
-        <!-- Banner -->
-            <section class="banner" style="height: 85vh">
-                <article>
-                    <img src="{{ asset('ui/images/logobpjs.jpg') }}" alt="" />
-                    <div class="inner">
-                    </div>
-                </article>
-                <article>
-                    <img src="{{ asset('ui/images/bpjs1.jpg') }}" alt="" />
-                    <div class="inner">
-                    </div>
-                </article>
-                <article>
-                    <img src="{{ asset('ui/images/bpjs2.jpg') }}" alt="" />
-                    <div class="inner">
-                    </div>
-                </article>
-                <article>
-                    <img src="{{ asset('ui/images/bpjs3.jpg') }}"  alt="" />
-                    <div class="inner">
-                    </div>
-                </article>
-                <article>
-                    <img src="{{ asset('ui/images/bpjs4.jpg') }}"  alt="" />
-                    <div class="inner">
-                    </div>
-                </article>
-            </section>
+<!-- Banner -->
+<section class="banner" style="height: 85vh">
+    <article>
+        <img src="{{ asset('ui/images/logobpjs.jpg') }}" alt=""/>
+        <div class="inner">
+        </div>
+    </article>
+    <article>
+        <img src="{{ asset('ui/images/bpjs1.jpg') }}" alt=""/>
+        <div class="inner">
+        </div>
+    </article>
+    <article>
+        <img src="{{ asset('ui/images/bpjs2.jpg') }}" alt=""/>
+        <div class="inner">
+        </div>
+    </article>
+    <article>
+        <img src="{{ asset('ui/images/bpjs3.jpg') }}" alt=""/>
+        <div class="inner">
+        </div>
+    </article>
+    <article>
+        <img src="{{ asset('ui/images/bpjs4.jpg') }}" alt=""/>
+        <div class="inner">
+        </div>
+    </article>
+</section>
 
-        <!-- One -->
-            <section id="one" class="wrapper style2">
-                <div class="inner">
-                    <div class="grid-style">
+<!-- One -->
+<section id="one" class="wrapper style2">
+    <div class="inner">
+        <div class="grid-style">
 
-                        <div>
-                            <div class="box">
-                                <div class="image fit">
-                                    <img src="{{ asset('ui/images/bpjs2.jpg') }}" alt="" />
-                                </div>
-                                <div class="content">
-                                    <header class="align-center">
-                                        <p>BPJS Kesehatan</p>
-                                        <h2>Kami pahlawan bagi sesama</h2>
-                                    </header>
-                                    <p> Dengan menjadi peserta program JKN-KIS berarti Anda telah menjadi pahlawan bagi sesama demi Indonesia yang sehat dan sejahtera.
-                                    Mari lindungi diri sendiri dan orang lain dengan gotong royong semua tertolong.</p>
-                                </div>
-                            </div>
+            @foreach($news as $item)
+                <div>
+                    <div class="box">
+                        <div class="image fit">
+                            <img src="{{ asset(config('variables.news.public').$item->image) }}" alt=""/>
                         </div>
-                        <div>
-                            <div class="box">
-                                <div class="image fit">
-                                    <img src="{{ asset('ui/images/bpjs3.jpg') }}" alt="" />
-                                </div>
-                                <div class="content">
-                                    <header class="align-center">
-                                        <p>BPJS Kesehatan</p>
-                                        <h2>50 tahun Gotong Royong Untuk Indonesia</h2>
-                                    </header>
-                                    <p>DAMAR CANTIK 50 tahun Gotong Royong Untuk Indonesia</p>                                   
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </section>
-
-        <!-- Two -->
-            <section id="three" class="wrapper style2">
-                <div class="inner">
-                    <header class="align-center">
-                        <p class="special">Badan Penyelenggara Jaminan Sosial Kesehatan</p>
-                        <h2>SEDAPEN</h2>
-                    </header>
-                    <div class="gallery">
-                        <div>
-                            <div class="image fit">
-                                <a href="#"><img src="{{ asset('ui/images/bpjs1.jpg') }}" alt="" /></a>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="image fit">
-                                <a href="#"><img src="{{ asset('ui/images/bpjs2.jpg') }}" alt="" /></a>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="image fit">
-                                <a href="#"><img src="{{ asset('ui/images/bpjs3.jpg') }}" alt="" /></a>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="image fit">
-                                <a href="#"><img src="{{ asset('ui/images/bpjs4.jpg') }}" alt="" /></a>
-                            </div>
+                        <div class="content">
+                            <header class="align-center">
+                                <p>BPJS Kesehatan</p>
+                                <h2>{{ $item->title }}</h2>
+                            </header>
+                            <p>{{ $item->content }}</p>
                         </div>
                     </div>
                 </div>
-            </section>
+            @endforeach
 
+        </div>
+    </div>
+</section>
 
-        <!-- Footer -->
-            <footer id="footer">
-                <div class="copyright">
-                    &copy; BPJS. All rights reserved.
+<!-- Two -->
+<section id="three" class="wrapper style2">
+    <div class="inner">
+        <header class="align-center">
+            <p class="special">Badan Penyelenggara Jaminan Sosial Kesehatan</p>
+            <h2>SEDAPEN</h2>
+        </header>
+        <div class="gallery">
+            @foreach($images as $item)
+                <div>
+                    <div class="image fit">
+                        <a href="#"><img src="{{ asset(config('variables.promotional_images.public').$item->imageg) }}" alt=""/></a>
+                    </div>
                 </div>
-            </footer>
+            @endforeach
+        </div>
+    </div>
+</section>
 
-        <!-- Scripts -->
-            <script src="{{ asset('ui/assets/js/jquery.min.js') }}"></script>
-            <script src="{{ asset('ui/assets/js/jquery.scrollex.min.js') }}"></script>
-            <script src="{{ asset('ui/assets/js/skel.min.js') }}"></script>
-            <script src="{{ asset('ui/assets/js/util.js') }}"></script>
-            <script src="{{ asset('ui/assets/js/main.js') }}"></script>
 
-    </body>
+<!-- Footer -->
+<footer id="footer">
+    <div class="copyright">
+        &copy; BPJS. All rights reserved.
+    </div>
+</footer>
+
+<!-- Scripts -->
+<script src="{{ asset('ui/assets/js/jquery.min.js') }}"></script>
+<script src="{{ asset('ui/assets/js/jquery.scrollex.min.js') }}"></script>
+<script src="{{ asset('ui/assets/js/skel.min.js') }}"></script>
+<script src="{{ asset('ui/assets/js/util.js') }}"></script>
+<script src="{{ asset('ui/assets/js/main.js') }}"></script>
+
+</body>
 </html>

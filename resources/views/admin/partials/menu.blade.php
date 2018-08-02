@@ -8,7 +8,7 @@
 
     @if(auth()->user()->isAdmin() || auth()->user()->isSuperAdmin() )
 
-        <a class='sidebar-link' href="{{ route(ADMIN . '.dash') }}" default>
+        <a class='sidebar-link' href="{{ route(ADMIN . '.submission_history.index') }}" default>
         <span class="icon-holder">
             <i class="ti-layout-list-post"></i>
         </span>
@@ -21,6 +21,21 @@
         </span>
             <span class="title">Akun Satker</span>
         </a>
+
+        <a class='sidebar-link' href="{{ route(ADMIN . '.promotional_images.index') }}" default>
+        <span class="icon-holder">
+            <i class=" ti-layout-list-post"></i>
+        </span>
+            <span class="title">Gambar BPJS</span>
+        </a>
+
+        <a class='sidebar-link' href="{{ route(ADMIN . '.news.index') }}" default>
+        <span class="icon-holder">
+            <i class=" ti-layout-list-post"></i>
+        </span>
+            <span class="title">Berita BPJS</span>
+        </a>
+
 
         <a class='sidebar-link' href="{{ route(ADMIN . '.qna.index') }}" default>
         <span class="icon-holder">

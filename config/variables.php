@@ -55,4 +55,14 @@ return [
         'public' => 'storage/submissions/',
         'folder' => 'submissions',
     ],
+
+    'promotional_images' => [
+        'public' => 'storage/promotional_images/',
+        'folder' => 'promotional_images',
+    ],
+
+    'news' => [
+        'public' => 'storage/news/',
+        'folder' => 'news',
+    ],
 ];
