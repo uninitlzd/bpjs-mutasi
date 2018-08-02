@@ -54,6 +54,9 @@
             <div class="peer">
                 <a href="/register" class="btn btn-link">Buat Akun Baru</a>
             </div>
+            <div class="peer">
+                <a href="{{ route('password.request') }}" class="btn btn-link">Lupa Password</a>
+            </div>
         </div>
     </form>
 

@@ -49,6 +49,12 @@ Route::get('/faq', function () {
 });
 
 
+Route::get('home', function () {
+    $news = News::get();
+    $images = PromotionalImages::get();
+    return view('welcome', compact('news', 'images'));
+});
+
 Route::group(['prefix' => 'api', 'namespace' => 'Api'], function () {
    Route::get('satker', 'SatkerController@index');
 });
