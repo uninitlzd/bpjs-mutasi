@@ -1,17 +1,17 @@
 @extends('admin.default')
 
 @section('page-header')
-	QNA <small>{{ trans('app.add_new_item') }}</small>
+	Upload Form
 @stop
 
 @section('content')
 	{!! Form::open([
-			'action' => ['Admin\QNAController@store'],
+			'action' => ['SubmissionController@store'],
 			'files' => true
 		])
 	!!}
 
-		@include('admin.qna.form')
+		@include('satker.submissions.form')
 
 		<button type="submit" class="btn btn-primary">{{ trans('app.add_button') }}</button>
 

@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
-use App\Satker;
+use App\Http\Controllers\Controller;
+use App\QNA;
 use Illuminate\Http\Request;
 
-class SatkerController extends Controller
+class QNAController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +15,9 @@ class SatkerController extends Controller
      */
     public function index()
     {
-        //
+        $qna = QNA::get();
+
+        return view('admin.qna.index', compact('qna'));
     }
 
     /**
@@ -24,7 +27,7 @@ class SatkerController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.qna.create');
     }
 
     /**
@@ -35,16 +38,18 @@ class SatkerController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        QNA::create($request->except('_token'));
+
+        return redirect()->route('admin.qna.index');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Satker  $satker
+     * @param  \App\QNA  $qNA
      * @return \Illuminate\Http\Response
      */
-    public function show(Satker $satker)
+    public function show(QNA $qNA)
     {
         //
     }
@@ -52,34 +57,36 @@ class SatkerController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Satker  $satker
+     * @param  \App\QNA  $qNA
      * @return \Illuminate\Http\Response
      */
-    public function edit(Satker $satker)
+    public function edit(QNA $qna)
     {
-        //
+        return view('admin.qna.edit', compact('qna'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Satker  $satker
+     * @param  \App\QNA  $qNA
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Satker $satker)
+    public function update(Request $request, QNA $qna)
     {
-        //
+        $qna->update($request->except('_token'));
+        return redirect()->route('admin.qna.index');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Satker  $satker
+     * @param  \App\QNA  $qNA
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Satker $satker)
+    public function destroy(QNA $qna)
     {
-        //
+        $qna->delete();
+        return redirect()->route('admin.qna.index');
     }
 }

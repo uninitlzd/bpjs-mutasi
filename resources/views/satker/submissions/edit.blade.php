@@ -1,18 +1,18 @@
 @extends('admin.default')
 
 @section('page-header')
-	QNA <small>{{ trans('app.update_item') }}</small>
+	Update Data
 @stop
 
 @section('content')
-	{!! Form::model($qna, [
-			'action' => ['Admin\QNAController@update', $qna->id],
+	{!! Form::model($submission, [
+			'action' => ['SubmissionController@update', $submission->id],
 			'method' => 'put',
 			'files' => true
 		])
 	!!}
 
-		@include('admin.qna.form')
+		@include('satker.submissions.form')
 
 		<button type="submit" class="btn btn-primary">{{ trans('app.edit_button') }}</button>
 

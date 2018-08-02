@@ -61,11 +61,21 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
-        return Validator::make($data, [
-            'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
-            'satker' => 'required|exists:satker,id'
-        ]);
+        if (config('app.env') === 'local') {
+            return Validator::make($data, [
+                'name' => 'required|string|max:255',
+                'email' => 'required|string|email|max:255|unique:users',
+                'satker' => 'required|exists:satker,id',
+            ]);
+        } else {
+            return Validator::make($data, [
+                'name' => 'required|string|max:255',
+                'email' => 'required|string|email|max:255|unique:users',
+                'satker' => 'required|exists:satker,id',
+                'g-recaptcha-response'=>'required|recaptcha'
+            ]);
+        }
+
     }
 
     /**

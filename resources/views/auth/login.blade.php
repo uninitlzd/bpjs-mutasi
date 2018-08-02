@@ -4,6 +4,7 @@
 
     <h4 class="fw-300 c-grey-900 mB-40">Login</h4>
     <form class="form-horizontal" method="POST" action="{{ route('login') }}">
+
         {{ csrf_field() }}
 
         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
@@ -26,6 +27,12 @@
                     <small>{{ $errors->first('password') }}</small>
                 </span>
             @endif
+        </div>
+
+        <div class="form-group">
+            <div class="g-recaptcha"
+                 data-sitekey="6Ld1vWcUAAAAALRNbfJrAgc38eaGIpxRMOtig5wW">
+            </div>
         </div>
 
         <div class="form-group">

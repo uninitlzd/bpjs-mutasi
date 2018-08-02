@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
-use App\DepartemenSatker;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
-class DepartemenSatkerController extends Controller
+class SubmissionController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +41,10 @@ class DepartemenSatkerController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\DepartemenSatker  $departemenSatker
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(DepartemenSatker $departemenSatker)
+    public function show($id)
     {
         //
     }
@@ -52,10 +52,10 @@ class DepartemenSatkerController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\DepartemenSatker  $departemenSatker
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(DepartemenSatker $departemenSatker)
+    public function edit($id)
     {
         //
     }
@@ -64,10 +64,10 @@ class DepartemenSatkerController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\DepartemenSatker  $departemenSatker
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, DepartemenSatker $departemenSatker)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -75,10 +75,10 @@ class DepartemenSatkerController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\DepartemenSatker  $departemenSatker
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(DepartemenSatker $departemenSatker)
+    public function destroy($id)
     {
         //
     }

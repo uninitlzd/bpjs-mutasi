@@ -49,5 +49,10 @@ return [
     'KODE' => [
         'KC' => 1301,
         'DATI2' => 0217
-    ]
+    ],
+
+    'submissions' => [
+        'public' => 'storage/submissions/',
+        'folder' => 'submissions',
+    ],
 ];

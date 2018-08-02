@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\QNA;
 use Illuminate\Http\Request;
 
-class QNAController extends Controller
+class SubmissionHistoryController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +13,7 @@ class QNAController extends Controller
      */
     public function index()
     {
-        $qna = QNA::get();
-
-        return view('admin.qna.index', compact('qna'));
+        //
     }
 
     /**
@@ -26,7 +23,7 @@ class QNAController extends Controller
      */
     public function create()
     {
-        return view('admin.qna.create');
+        //
     }
 
     /**
@@ -37,18 +34,16 @@ class QNAController extends Controller
      */
     public function store(Request $request)
     {
-        QNA::create($request->except('_token'));
-
-        return redirect()->route('admin.qna.index');
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\QNA  $qNA
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(QNA $qNA)
+    public function show($id)
     {
         //
     }
@@ -56,36 +51,34 @@ class QNAController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\QNA  $qNA
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(QNA $qna)
+    public function edit($id)
     {
-        return view('admin.qna.edit', compact('qna'));
+        //
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\QNA  $qNA
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, QNA $qna)
+    public function update(Request $request, $id)
     {
-        $qna->update($request->except('_token'));
-        return redirect()->route('admin.qna.index');
+        //
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\QNA  $qNA
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(QNA $qna)
+    public function destroy($id)
     {
-        $qna->delete();
-        return redirect()->route('admin.qna.index');
+        //
     }
 }

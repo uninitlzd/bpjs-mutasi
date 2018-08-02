@@ -46,10 +46,6 @@ class FormController extends Controller
 
     public function generateForm1($n)
     {
-        $spreadsheet = new Spreadsheet();
-        $sheet = $spreadsheet->getActiveSheet();
-        $style = $sheet->getStyle('A1:C1')->getBorders()->getAllBorders()->setBorderStyle(Border::BORDER_THIN);
-
         $reader = IOFactory::createReader('Xlsx');
         $spreadsheet = $reader->load("form-template/".config('variables.FORM_TEMPLATE.1'));
 
@@ -90,10 +86,6 @@ class FormController extends Controller
 
     public function generateForm2($n)
     {
-        $spreadsheet = new Spreadsheet();
-        $sheet = $spreadsheet->getActiveSheet();
-        $style = $sheet->getStyle('A1:C1')->getBorders()->getAllBorders()->setBorderStyle(Border::BORDER_THIN);
-
         $reader = IOFactory::createReader('Xlsx');
         $spreadsheet = $reader->load("form-template/".config('variables.FORM_TEMPLATE.2'));
 
@@ -134,10 +126,6 @@ class FormController extends Controller
 
     public function generateForm3($n)
     {
-        $spreadsheet = new Spreadsheet();
-        $sheet = $spreadsheet->getActiveSheet();
-        $style = $sheet->getStyle('A1:C1')->getBorders()->getAllBorders()->setBorderStyle(Border::BORDER_THIN);
-
         $reader = IOFactory::createReader('Xlsx');
         $spreadsheet = $reader->load("form-template/".config('variables.FORM_TEMPLATE.3'));
 
@@ -178,10 +166,6 @@ class FormController extends Controller
 
     public function generateForm5($n)
     {
-        $spreadsheet = new Spreadsheet();
-        $sheet = $spreadsheet->getActiveSheet();
-        $style = $sheet->getStyle('A1:C1')->getBorders()->getAllBorders()->setBorderStyle(Border::BORDER_THIN);
-
         $reader = IOFactory::createReader('Xlsx');
         $spreadsheet = $reader->load("form-template/".config('variables.FORM_TEMPLATE.5'));
 
@@ -222,10 +206,6 @@ class FormController extends Controller
 
     public function generateForm6($n)
     {
-        $spreadsheet = new Spreadsheet();
-        $sheet = $spreadsheet->getActiveSheet();
-        $style = $sheet->getStyle('A1:C1')->getBorders()->getAllBorders()->setBorderStyle(Border::BORDER_THIN);
-
         $reader = IOFactory::createReader('Xlsx');
         $spreadsheet = $reader->load("form-template/".config('variables.FORM_TEMPLATE.6'));
 
@@ -266,10 +246,6 @@ class FormController extends Controller
 
     public function generateForm8($n)
     {
-        $spreadsheet = new Spreadsheet();
-        $sheet = $spreadsheet->getActiveSheet();
-        $style = $sheet->getStyle('A1:C1')->getBorders()->getAllBorders()->setBorderStyle(Border::BORDER_THIN);
-
         $reader = IOFactory::createReader('Xlsx');
         $spreadsheet = $reader->load("form-template/".config('variables.FORM_TEMPLATE.8'));
 
@@ -310,10 +286,6 @@ class FormController extends Controller
 
     public function generateForm9($n)
     {
-        $spreadsheet = new Spreadsheet();
-        $sheet = $spreadsheet->getActiveSheet();
-        $style = $sheet->getStyle('A1:C1')->getBorders()->getAllBorders()->setBorderStyle(Border::BORDER_THIN);
-
         $reader = IOFactory::createReader('Xlsx');
         $spreadsheet = $reader->load("form-template/".config('variables.FORM_TEMPLATE.9'));
 
@@ -354,6 +326,61 @@ class FormController extends Controller
 
     public function makeNew()
     {
+        $reader = IOFactory::createReader('Xlsx');
+        $spreadsheet = $reader->load("form-template/".config('variables.FORM_TEMPLATE.DATA_BARU'));
 
+        $sheet = $spreadsheet->getActiveSheet();
+
+        $sheet->setCellValue("C1", auth()->user()->satker->kode);
+        $sheet->setCellValue("C2", auth()->user()->satker->nama);
+        $sheet->setCellValue("C3", "BPJS Non-PBI");
+        $sheet->setCellValue("C4", config('variables.KODE.KC'));
+        $sheet->setCellValue("C5", config('variables.KODE.DATI2'));
+
+        $sheet->getStyle('C1:C5')->getAlignment()->setHorizontal(Alignment::HORIZONTAL_LEFT);
+
+        $sheet->getColumnDimension('C')->setAutoSize(true);
+
+        $writer = IOFactory::createWriter($spreadsheet, "Xlsx");
+        $file_name = "temporary/DATA_BARU_" . sha1(time()) . ".xlsx";
+        $writer->save($file_name);
+
+        return response()->download($file_name)->deleteFileAfterSend();
+    }
+
+    public function makeFKTP()
+    {
+        $reader = IOFactory::createReader('Xlsx');
+        $spreadsheet = $reader->load("form-template/".config('variables.FORM_TEMPLATE.FKTP'));
+
+        $writer = IOFactory::createWriter($spreadsheet, "Xlsx");
+        $file_name = "temporary/FKTP_" . sha1(time()) . ".xlsx";
+        $writer->save($file_name);
+
+        return response()->download($file_name)->deleteFileAfterSend();
+    }
+
+    public function makeTambahKeluargaInti()
+    {
+        $reader = IOFactory::createReader('Xlsx');
+        $spreadsheet = $reader->load("form-template/".config('variables.FORM_TEMPLATE.TAMBAH_ANGGOTA_KELUARGA_INTI'));
+
+        $sheet = $spreadsheet->getActiveSheet();
+
+        $sheet->setCellValue("C1", auth()->user()->satker->kode);
+        $sheet->setCellValue("C2", auth()->user()->satker->nama);
+        $sheet->setCellValue("C3", "BPJS Non-PBI");
+        $sheet->setCellValue("C4", config('variables.KODE.KC'));
+        $sheet->setCellValue("C5", config('variables.KODE.DATI2'));
+
+        $sheet->getStyle('C1:C5')->getAlignment()->setHorizontal(Alignment::HORIZONTAL_LEFT);
+
+        $sheet->getColumnDimension('C')->setAutoSize(true);
+
+        $writer = IOFactory::createWriter($spreadsheet, "Xlsx");
+        $file_name = "temporary/TAMBAH_ANGGOTA_KELUARGA_INTI_" . sha1(time()) . ".xlsx";
+        $writer->save($file_name);
+
+        return response()->download($file_name)->deleteFileAfterSend();
     }
 }

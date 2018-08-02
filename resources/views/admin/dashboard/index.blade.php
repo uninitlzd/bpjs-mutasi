@@ -71,11 +71,12 @@
                             </div>
                             <div class="layer w-100">
                                 <form action="{{ route('admin.form.new') }}" method="POST">
+                                    {{ csrf_field() }}
                                     <div class="row">
                                         <div class="col-md-12">
-                                            <a href="" class="form-control btn btn-primary c-white">
+                                            <button href="" class="form-control btn btn-primary c-white">
                                                 Buat
-                                            </a>
+                                            </button>
                                         </div>
                                     </div>
                                 </form>
@@ -89,6 +90,7 @@
                             </div>
                             <div class="layer w-100">
                                 <form action="{{ route('admin.form.new.fktp') }}" method="post">
+                                    {{ csrf_field() }}
                                     <div class="row">
                                         <div class="col-md-12">
                                             <button class="form-control btn btn-primary c-white">
@@ -107,6 +109,7 @@
                             </div>
                             <div class="layer w-100">
                                 <form action="{{ route('admin.form.new.tambah_anggota_keluarga_inti') }}" method="post">
+                                    {{ csrf_field() }}
                                     <div class="row">
                                         <div class="col-md-12">
                                             <button class="form-control btn btn-primary c-white">
