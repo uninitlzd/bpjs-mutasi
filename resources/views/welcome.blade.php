@@ -95,7 +95,7 @@
             @foreach($images as $item)
                 <div>
                     <div class="image fit">
-                        <a href="#"><img src="{{ asset(config('variables.promotional_images.public').$item->imageg) }}" alt=""/></a>
+                        <a href="#"><img src="{{ asset(config('variables.promotional_images.public').$item->image) }}" alt=""/></a>
                     </div>
                 </div>
             @endforeach
