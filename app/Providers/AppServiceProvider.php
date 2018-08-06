@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use Firebase\Auth\Token\Verifier;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\ServiceProvider;
@@ -25,6 +26,7 @@ class AppServiceProvider extends ServiceProvider
             'recaptcha',
             'App\\Utils\\ReCaptcha@validate'
         );
+
     }
 
     /**
@@ -34,6 +36,5 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
     }
 }

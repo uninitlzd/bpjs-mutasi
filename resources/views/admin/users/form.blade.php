@@ -5,9 +5,9 @@
 
 				{!! Form::myInput('email', 'email', 'Email') !!}
 
-				{!! Form::myInput('password', 'password', 'Password') !!}
+				{!! Form::myInput('password', 'password', 'Password Baru') !!}
 
-				{!! Form::myInput('password', 'password_confirmation', 'Password again') !!}
+				{!! Form::myInput('password', 'password_confirmation', 'Password Again ') !!}
 
                 @if(auth()->user()->isSuperAdmin())
 

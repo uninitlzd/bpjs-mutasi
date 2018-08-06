@@ -2,6 +2,7 @@
 
 use App\News;
 use App\PromotionalImages;
+use GuzzleHttp\Client;
 
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 Auth::routes();
@@ -35,6 +36,8 @@ Route::group(['prefix' => ADMIN, 'as' => ADMIN . '.', 'middleware'=>['auth', 'Ro
         Route::resource('promotional_images', 'PromotionalImagesController');
         Route::resource('news', 'NewsController');
     });
+
+    Route::get('/chat', 'Admin\ChatController@index');
 });
 
 Route::get('/', function () {
@@ -57,4 +60,9 @@ Route::get('home', function () {
 
 Route::group(['prefix' => 'api', 'namespace' => 'Api'], function () {
    Route::get('satker', 'SatkerController@index');
+});
+
+
+Route::get('test', function () {
+    echo 'test';
 });
