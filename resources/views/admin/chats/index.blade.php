@@ -68,7 +68,7 @@
             display: none;
         }
 
-        #firechat-tab-content .tab-pane.menu {
+        #firechat-tab-content .tab-pane-menu {
             display: none;
         }
     </style>
