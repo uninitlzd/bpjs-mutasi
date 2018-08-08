@@ -87,26 +87,26 @@
             <h3>Berita</h3>
         </div>
         @foreach($news as $item)
-            <div>
-                <div class="col-md-6">
-                    <div class="card">
-                        <div class="row">
-                            <div class="card-body">
-                                <div class="col-md-12">
-                                    <img src="{{ asset(config('variables.news.public').$item->image) }}" alt=""
-                                         style="width: 100%"/>
-                                </div>
-                                <div class="col-md-12">
-                                    <header class="text-center mt-3">
-                                        <h4>{{ $item->title }}</h4>
-                                    </header>
-                                    <p>{{ $item->content }}</p>
-                                </div>
+
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="row">
+                        <div class="card-body">
+                            <div class="col-md-12">
+                                <img src="{{ asset(config('variables.news.public').$item->image) }}" alt=""
+                                     style="width: 100%"/>
+                            </div>
+                            <div class="col-md-12">
+                                <header class="text-center mt-3">
+                                    <h4>{{ $item->title }}</h4>
+                                </header>
+                                <p>{{ $item->content }}</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+
         @endforeach
     </div>
 
@@ -114,22 +114,25 @@
         <div class="col-md-12 text-center mb-5">
             <h3>Galeri</h3>
         </div>
+
         @foreach($images as $item)
-            <div>
-                <div class="col-md-6">
-                    <div class="card">
-                        <div class="row">
-                            <div class="card-body">
-                                <div class="col-md-12">
-                                    <img src="{{ asset(config('variables.promotional_images.public').$item->image) }}" alt=""
-                                         style="width: 100%"/>
-                                </div>
+
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="row">
+                        <div class="card-body">
+                            <div class="col-md-12">
+                                <img src="{{ asset(config('variables.promotional_images.public').$item->image) }}"
+                                     alt=""
+                                     style="width: 100%"/>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+
         @endforeach
+
     </div>
 </div>
 
