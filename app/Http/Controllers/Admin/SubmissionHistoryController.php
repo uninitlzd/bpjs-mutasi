@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Submission;
+use Exception;
 use Illuminate\Http\Request;
 
 class SubmissionHistoryController extends Controller
@@ -90,6 +91,12 @@ class SubmissionHistoryController extends Controller
         $submission->status = Submission::APPROVED;
         $submission->save();
 
+        try {
+            unlink(config('variables.submissions_feedback.public').$submission->feedback_file);
+        } catch (Exception $e) {
+
+        }
+
         return redirect()->back()->with('success', 'Submission ' . $submission->id . ' Approved');
     }
 
@@ -102,6 +109,8 @@ class SubmissionHistoryController extends Controller
     {
         $submission->status = Submission::REJECTED;
         $submission->feedback = $request->feedback;
+        $submission->feedback_file = move_file($request->feedback_file, 'submissions_feedback');
+
         $submission->save();
 
         return redirect()->route('admin.submission_history.index')->with('Success', 'Data' . $submission->id . 'ditolak');

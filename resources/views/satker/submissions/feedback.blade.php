@@ -25,9 +25,9 @@
         </div>
 
         <div class="form-group">
-            <label for="">File</label>
+            <label for="">Feedback File</label>
             <div>
-                <a class="btn btn-info" href="{{ asset(config('variables.submissions.public').$submission->file) }}"
+                <a class="btn btn-info" href="{{ asset(config('variables.submissions_feedback.public').$submission->feedback_file) }}"
                    download>Lihat File</a>
             </div>
         </div>

@@ -56,6 +56,11 @@ return [
         'folder' => 'submissions',
     ],
 
+    'submissions_feedback' => [
+        'public' => 'storage/submissions_feedback/',
+        'folder' => 'submissions_feedback',
+    ],
+
     'promotional_images' => [
         'public' => 'storage/promotional_images/',
         'folder' => 'promotional_images',

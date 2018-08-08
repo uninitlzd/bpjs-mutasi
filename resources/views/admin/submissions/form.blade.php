@@ -21,15 +21,29 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="">File</label>
-                    <div>
-                        <a class="btn btn-info" href="{{ asset(config('variables.submissions.public').$submission->file) }}"
-                           download>Lihat File</a>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="">File Asli</label>
+                                <div>
+                                    <a class="btn btn-info" href="{{ asset(config('variables.submissions.public').$submission->file) }}"
+                                       download>Lihat File</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="">File Feedback</label>
+                                <div>
+                                    <input type="file" name="feedback_file" id="" class="form-control">
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label for="">Feedback</label>
+                    <label for="">Feedback Message</label>
                     <textarea name="feedback" id="" cols="30" rows="10" class="form-control" required></textarea>
                 </div>
             @else
