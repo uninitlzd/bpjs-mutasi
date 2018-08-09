@@ -110,30 +110,7 @@
         @endforeach
     </div>
 
-    <div class="row text-center mt-5">
-        <div class="col-md-12 text-center mb-5">
-            <h3>Galeri</h3>
-        </div>
 
-        @foreach($images as $item)
-
-            <div class="col-md-6">
-                <div class="card">
-                    <div class="row">
-                        <div class="card-body">
-                            <div class="col-md-12">
-                                <img src="{{ asset(config('variables.promotional_images.public').$item->image) }}"
-                                     alt=""
-                                     style="width: 100%"/>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        @endforeach
-
-    </div>
 </div>
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
