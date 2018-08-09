@@ -17,7 +17,7 @@ class FeedbackController extends Controller
      */
     public function index()
     {
-        $feedback=Feedback::get();
+        $feedback = Feedback::get();
         return view('admin.feedback.index', compact('feedback'));
     }
 

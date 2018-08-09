@@ -130,13 +130,20 @@
     @else
 
         <div class="row">
+            <div class="col-md-12">
+                <h5>Rekap Jumlah Data Berdasarkan Status</h5>
+                <hr>
+            </div>
             <div class="col-md-3">
                 <div class="layers bd bgc-white p-20">
                     <div class="layer w-100 mB-10"><h6 class="lh-1">Total Data Masuk</h6></div>
                     <div class="layer w-100">
                         <div class="peers ai-sb fxw-nw">
+                            <div class="peer mr-auto">
+                                <a href="{{ route('admin.submission_history.index') }}" class="btn btn-info btn-sm">Lihat Data</a>
+                            </div>
                             <div class="peer"><span
-                                    class="d-ib lh-0 va-m fw-600 bdrs-10em pX-15 pY-15 bgc-green-50 c-green-500">{{ $data }}</span>
+                                    class="d-ib lh-0 va-m fw-600 bdrs-10em pX-15 pY-15 bgc-blue-50 c-blue-500">{{ $data }}</span>
                             </div>
                         </div>
                     </div>
@@ -147,8 +154,11 @@
                     <div class="layer w-100 mB-10"><h6 class="lh-1">Total Data Sedang Diproses</h6></div>
                     <div class="layer w-100">
                         <div class="peers ai-sb fxw-nw">
+                            <div class="peer mr-auto">
+                                <a href="{{ route('admin.submission_history.index', ['status' => 1]) }}" class="btn btn-info btn-sm c-white">Lihat Data</a>
+                            </div>
                             <div class="peer"><span
-                                    class="d-ib lh-0 va-m fw-600 bdrs-10em pX-15 pY-15 bgc-green-50 c-green-500">{{ $dataBeingProcessed }}</span>
+                                    class="d-ib lh-0 va-m fw-600 bdrs-10em pX-15 pY-15 bgc-blue-50 c-blue-500">{{ $dataBeingProcessed }}</span>
                             </div>
                         </div>
                     </div>
@@ -159,6 +169,9 @@
                     <div class="layer w-100 mB-10"><h6 class="lh-1">Total Data Diterima</h6></div>
                     <div class="layer w-100">
                         <div class="peers ai-sb fxw-nw">
+                            <div class="peer mr-auto">
+                                <a href="{{ route('admin.submission_history.index', ['status' => 2]) }}" class="btn btn-success btn-sm">Lihat Data</a>
+                            </div>
                             <div class="peer"><span
                                     class="d-ib lh-0 va-m fw-600 bdrs-10em pX-15 pY-15 bgc-green-50 c-green-500">{{ $dataAccepted }}</span>
                             </div>
@@ -171,8 +184,11 @@
                     <div class="layer w-100 mB-10"><h6 class="lh-1">Total Data Ditolak</h6></div>
                     <div class="layer w-100">
                         <div class="peers ai-sb fxw-nw">
+                            <div class="peer mr-auto">
+                                <a href="{{ route('admin.submission_history.index', ['status' => 3]) }}" class="btn btn-danger btn-sm">Lihat Data</a>
+                            </div>
                             <div class="peer"><span
-                                    class="d-ib lh-0 va-m fw-600 bdrs-10em pX-15 pY-15 bgc-green-50 c-green-500">{{ $dataRejected }}</span>
+                                    class="d-ib lh-0 va-m fw-600 bdrs-10em pX-15 pY-15 bgc-red-50 c-red-500">{{ $dataRejected }}</span>
                             </div>
                         </div>
                     </div>
@@ -180,6 +196,136 @@
             </div>
         </div>
 
+        <div class="row mt-5">
+            <div class="col-md-12">
+                <h5>Rekap Jumlah Data Berdasarkan Jenis</h5>
+                <hr>
+            </div>
+            <div class="col-md-3">
+                <div class="layers bd bgc-white p-20">
+                    <div class="layer w-100 mB-10"><h6 class="lh-1">Mutasi Identitas</h6></div>
+                    <div class="layer w-100">
+                        <div class="peers ai-sb fxw-nw">
+                            <div class="peer"><span
+                                    class="d-ib lh-0 va-m fw-600 bdrs-10em pX-15 pY-15 bgc-blue-50 c-blue-500">{{ $presentaseJenis[1] }}%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="layers bd bgc-white p-20">
+                    <div class="layer w-100 mB-10"><h6 class="lh-1">Mutasi Alamat</h6></div>
+                    <div class="layer w-100">
+                        <div class="peers ai-sb fxw-nw">
+                            <div class="peer"><span
+                                    class="d-ib lh-0 va-m fw-600 bdrs-10em pX-15 pY-15 bgc-blue-50 c-blue-500">{{ $presentaseJenis[2] }}%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="layers bd bgc-white p-20">
+                    <div class="layer w-100 mB-10"><h6 class="lh-1">Mutasi Gaji</h6></div>
+                    <div class="layer w-100">
+                        <div class="peers ai-sb fxw-nw">
+                            <div class="peer"><span
+                                    class="d-ib lh-0 va-m fw-600 bdrs-10em pX-15 pY-15 bgc-blue-50 c-blue-500">{{ $presentaseJenis[3] }}%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="layers bd bgc-white p-20">
+                    <div class="layer w-100 mB-10"><h6 class="lh-1">Non Aktif Akhir Bulan</h6></div>
+                    <div class="layer w-100">
+                        <div class="peers ai-sb fxw-nw">
+                            <div class="peer"><span
+                                    class="d-ib lh-0 va-m fw-600 bdrs-10em pX-15 pY-15 bgc-blue-50 c-blue-500">{{ $presentaseJenis[5] }}%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col-md-3">
+                <div class="layers bd bgc-white p-20">
+                    <div class="layer w-100 mB-10"><h6 class="lh-1">Non Aktif Meninggal</h6></div>
+                    <div class="layer w-100">
+                        <div class="peers ai-sb fxw-nw">
+                            <div class="peer"><span
+                                    class="d-ib lh-0 va-m fw-600 bdrs-10em pX-15 pY-15 bgc-blue-50 c-blue-500">{{ $presentaseJenis[6] }}%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="layers bd bgc-white p-20">
+                    <div class="layer w-100 mB-10"><h6 class="lh-1">Pindah Satker</h6></div>
+                    <div class="layer w-100">
+                        <div class="peers ai-sb fxw-nw">
+                            <div class="peer"><span
+                                    class="d-ib lh-0 va-m fw-600 bdrs-10em pX-15 pY-15 bgc-blue-50 c-blue-500">{{ $presentaseJenis[8] }}%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="layers bd bgc-white p-20">
+                    <div class="layer w-100 mB-10"><h6 class="lh-1">NIP</h6></div>
+                    <div class="layer w-100">
+                        <div class="peers ai-sb fxw-nw">
+                            <div class="peer"><span
+                                    class="d-ib lh-0 va-m fw-600 bdrs-10em pX-15 pY-15 bgc-blue-50 c-blue-500">{{ $presentaseJenis[9] }}%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="layers bd bgc-white p-20">
+                    <div class="layer w-100 mB-10"><h6 class="lh-1">Pengajuan Data Baru</h6></div>
+                    <div class="layer w-100">
+                        <div class="peers ai-sb fxw-nw">
+                            <div class="peer"><span
+                                    class="d-ib lh-0 va-m fw-600 bdrs-10em pX-15 pY-15 bgc-blue-50 c-blue-500">{{ $presentaseJenis[991] }}%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col-md-3">
+                <div class="layers bd bgc-white p-20">
+                    <div class="layer w-100 mB-10"><h6 class="lh-1">Pindah Faskes</h6></div>
+                    <div class="layer w-100">
+                        <div class="peers ai-sb fxw-nw">
+                            <div class="peer"><span
+                                    class="d-ib lh-0 va-m fw-600 bdrs-10em pX-15 pY-15 bgc-blue-50 c-blue-500">{{ $presentaseJenis[992] }}%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="layers bd bgc-white p-20">
+                    <div class="layer w-100 mB-10"><h6 class="lh-1">Tambah Anggota Keluarga</h6></div>
+                    <div class="layer w-100">
+                        <div class="peers ai-sb fxw-nw">
+                            <div class="peer"><span
+                                    class="d-ib lh-0 va-m fw-600 bdrs-10em pX-15 pY-15 bgc-blue-50 c-blue-500">{{ $presentaseJenis[993] }}%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     @endif
 
 @endsection

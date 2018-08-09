@@ -7,6 +7,28 @@
 @section('content')
 
     <div class="bgc-white bd bdrs-3 p-20 mB-20">
+        <div class="row">
+            <div class="col-md-4">
+                <form action="" method="get">
+
+                    <div class="form-group">
+                        <label for="">Status Data</label>
+                        <div class="input-group mb-3">
+                            <select name="status" id="" class="form-control">
+                                <option value="">Semua Data</option>
+                                <option value="1" <?=($filter == 1 ? 'selected' : '')?>>Diproses</option>
+                                <option value="2" <?=($filter == 2 ? 'selected' : '')?>>Diterima</option>
+                                <option value="3" <?=($filter == 3 ? 'selected' : '')?>>Ditolak</option>
+                            </select>
+                            <div class="input-group-append">
+                                <input type="submit" class="form-control btn btn-outline-dark" value="Submit">
+                            </div>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
         <table id="dataTable" class="table table-striped table-bordered" cellspacing="0" width="100%">
             <thead>
             <tr>

@@ -14,10 +14,16 @@ class SubmissionHistoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $submissions = Submission::get();
-        return view('admin.submissions.index', compact('submissions'));
+        $filter = $request->status;
+        if (isset($request->status)) {
+            $submissions = Submission::where('status', $filter)->get();
+        } else {
+            $submissions = Submission::get();
+        }
+
+        return view('admin.submissions.index', compact('submissions', 'filter'));
     }
 
     /**
@@ -90,6 +96,8 @@ class SubmissionHistoryController extends Controller
     {
         $submission->status = Submission::APPROVED;
         $submission->save();
+
+
 
         try {
             unlink(config('variables.submissions_feedback.public').$submission->feedback_file);

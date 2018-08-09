@@ -14,6 +14,39 @@ class DashboardController extends Controller
         $dataAccepted = Submission::where('status', Submission::APPROVED)->get()->count();
         $dataRejected = Submission::where('status', Submission::REJECTED)->get()->count();
 
-        return view('admin.dashboard.index', compact('data', 'dataAccepted', 'dataBeingProcessed', 'dataRejected'));
+        /*1 => 'IDENTITAS',
+        2 => 'ALAMAT',
+        3 => 'GAJI',
+        5 => 'NON AKTIF AKHIR BULAN',
+        6 => 'NON AKTIF MENINGGAL',
+        8 => 'PINDAH SATUAN KERJA',
+        9 => 'NIP',
+        991 => 'DATA BARU',
+        992 => 'PINDAH FASKES',
+        993 => 'TAMBAH ANGGOTA KELUARGA'*/
+
+        $submissions = Submission::get();
+        $presentaseJenis = [
+            1 => 0,
+            2 => 0,
+            3 => 0,
+            5 => 0,
+            6 => 0,
+            8 => 0,
+            9 => 0,
+            991 => 0,
+            992 => 0,
+            993 => 0
+        ];
+
+
+        foreach ($presentaseJenis as $key => $value)
+        {
+            $jumlah = $submissions->where('code', $key)->count();
+            $presentaseJenis[$key] = ($jumlah / $data) * 100;
+        }
+
+
+        return view('admin.dashboard.index', compact('data', 'dataAccepted', 'dataBeingProcessed', 'dataRejected', 'presentaseJenis'));
     }
 }
