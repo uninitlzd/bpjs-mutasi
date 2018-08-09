@@ -78,9 +78,8 @@
             // Set the Firechat user
             chat.setUser(user.uid, user.displayName);
 
-            var firebaseRef = firebase.database().ref("firechat");
-            var firechat = new Firechat(firebaseRef);
-            firechat.enterRoom("-LJSKTT3QZW1dxqdZ0kx")
+
+            chat.enterRoom("-LJSKTT3QZW1dxqdZ0kx")
         }
     </script>
 @endsection
