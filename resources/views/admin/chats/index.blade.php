@@ -22,7 +22,9 @@
             display: none;
         }
 
-
+        #firechat-tab-content .tab-pane-menu {
+            display: none;
+        }
     </style>
 
 @endsection
@@ -76,7 +78,9 @@
             // Set the Firechat user
             chat.setUser(user.uid, user.displayName);
 
-            chat.enterRoom("-LJSKTT3QZW1dxqdZ0kx")
+            var firebaseRef = firebase.database().ref("firechat");
+            var firechat = new Firechat(firebaseRef);
+            firechat.enterRoom("-LJSKTT3QZW1dxqdZ0kx")
         }
     </script>
 @endsection
