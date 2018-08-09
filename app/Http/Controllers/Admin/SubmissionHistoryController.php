@@ -109,7 +109,10 @@ class SubmissionHistoryController extends Controller
     {
         $submission->status = Submission::REJECTED;
         $submission->feedback = $request->feedback;
-        $submission->feedback_file = move_file($request->feedback_file, 'submissions_feedback');
+
+        if (isset($request->feedback_file)) {
+            $submission->feedback_file = move_file($request->feedback_file, 'submissions_feedback');
+        }
 
         $submission->save();
 
