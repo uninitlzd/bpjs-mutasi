@@ -1,12 +1,35 @@
 @extends('admin.default')
 
 @section('page-header')
-    Users <small>{{ trans('app.manage') }}</small>
+    Chat <small>{{ trans('app.manage') }}</small>
 @endsection
 
 @section('content')
     <link rel="stylesheet" href="https://cdn.firebase.com/libs/firechat/3.0.1/firechat.min.css" />
 
+
+
+    <div id="firechat-wrapper">
+
+    </div>
+
+    <style>
+        #firechat-header {
+            display: none;
+        }
+
+        #firechat-tab-content .icon.close.right {
+            display: none;
+        }
+
+        #firechat-tab-content .tab-pane-menu {
+            display: none;
+        }
+    </style>
+
+@endsection
+
+@section('js')
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 
     <!-- Firebase -->
@@ -24,6 +47,8 @@
         };
 
         firebase.initializeApp(config);
+        login();
+
         function login() {
             // Log the user in via Twitter
 
@@ -54,23 +79,4 @@
             chat.setUser(user.uid, user.displayName);
         }
     </script>
-
-    <div id="firechat-wrapper">
-
-    </div>
-
-    <style>
-        #firechat-header {
-            display: none;
-        }
-
-        #firechat-tab-content .icon.close.right {
-            display: none;
-        }
-
-        #firechat-tab-content .tab-pane-menu {
-            display: none;
-        }
-    </style>
-
 @endsection

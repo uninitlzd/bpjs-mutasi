@@ -27,3 +27,8 @@ Route::get('/me', function (Request $request) {
 Route::get('/firebase/auth', function (Request $request) {
 
 })->middleware('auth:api');
+
+Route::group(['namespace' => 'Api'], function () {
+    Route::get('satker', 'SatkerController@index');
+    Route::get('departemen', 'DepartemenSatkerController@index');
+});

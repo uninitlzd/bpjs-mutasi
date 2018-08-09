@@ -54,12 +54,6 @@
         </div>
 
         <div class="form-group">
-            <div class="g-recaptcha"
-                 data-sitekey="6Ld1vWcUAAAAALRNbfJrAgc38eaGIpxRMOtig5wW">
-            </div>
-        </div>
-
-        <div class="form-group">
             <div class="peers ai-c jc-sb fxw-nw">
                 <div class="peer">
                     <a href="/login">I have an account</a>

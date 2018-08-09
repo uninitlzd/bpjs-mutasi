@@ -36,12 +36,25 @@
             <span class="title">Berita BPJS</span>
         </a>
 
-
-        <a class='sidebar-link' href="{{ route(ADMIN . '.qna.index') }}" default>
+        <a class='sidebar-link' href="{{ route(ADMIN . '.satker.index') }}" default>
         <span class="icon-holder">
             <i class=" ti-layout-list-post"></i>
         </span>
+            <span class="title">Satuan Kerja</span>
+        </a>
+
+        <a class='sidebar-link' href="{{ route(ADMIN . '.qna.index') }}" default>
+        <span class="icon-holder">
+            <i class=" ti-quote-right"></i>
+        </span>
             <span class="title">QNA</span>
+        </a>
+
+        <a class='sidebar-link' href="{{ route(ADMIN . '.get.chat') }}" default>
+        <span class="icon-holder">
+            <i class=" ti-comments"></i>
+        </span>
+            <span class="title">Chat</span>
         </a>
 
     @else
@@ -58,6 +71,13 @@
             <i class=" ti-layout-list-post"></i>
         </span>
             <span class="title">Riwayat Pengisian Data</span>
+        </a>
+
+        <a class='sidebar-link' href="{{ route(ADMIN . '.get.chat') }}" default>
+        <span class="icon-holder">
+            <i class=" ti-comments"></i>
+        </span>
+            <span class="title">Chat</span>
         </a>
 
     @endif

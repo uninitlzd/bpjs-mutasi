@@ -1,10 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Api;
+namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
+use App\DepartemenSatker;
+use App\PromotionalImages;
 use App\Satker;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class SatkerController extends Controller
 {
@@ -13,15 +15,10 @@ class SatkerController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
     {
-        if (isset($request->departemen_id)) {
-            return Satker::where('nama','LIKE','%'.$request->q.'%')
-                ->where('departemen_satker_id', $request->departemen_id)
-                ->paginate(10);
-        } else {
-            return Satker::where('nama','LIKE','%'.$request->q.'%')->paginate(10);
-        }
+        $images = new PromotionalImages();
+        return view('admin.satker.index', compact('images'));
     }
 
     /**
@@ -31,7 +28,8 @@ class SatkerController extends Controller
      */
     public function create()
     {
-        //
+        $departemen = DepartemenSatker::get();
+        return view('admin.satker.create', compact('departemen'));
     }
 
     /**

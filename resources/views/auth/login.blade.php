@@ -30,12 +30,6 @@
         </div>
 
         <div class="form-group">
-            <div class="g-recaptcha"
-                 data-sitekey="6Ld1vWcUAAAAALRNbfJrAgc38eaGIpxRMOtig5wW">
-            </div>
-        </div>
-
-        <div class="form-group">
             <div class="peers ai-c jc-sb fxw-nw">
                 <div class="peer">
                     <div class="checkbox checkbox-circle checkbox-info peers ai-c">

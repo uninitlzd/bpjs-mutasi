@@ -1,13 +1,13 @@
 @extends('admin.default')
 
 @section('page-header')
-    Gambar <small>{{ trans('app.manage') }}</small>
+    Satker <small>{{ trans('app.manage') }}</small>
 @endsection
 
 @section('content')
 
     <div class="mB-20">
-        <a href="{{ route(ADMIN . '.promotional_images.create') }}" class="btn btn-info">
+        <a href="{{ route(ADMIN . '.satker.create') }}" class="btn btn-info">
             {{ trans('app.add_button') }}
         </a>
     </div>
@@ -33,16 +33,16 @@
                 @foreach ($images as $item)
                     <tr>
                         <td>
-                            <img src="{{ asset(config('variables.promotional_images.public').$item->image) }}" width="400px" alt="">
+                            <img src="{{ asset(config('variables.satker.public')) }}" width="400px" alt="">
                         </td>
                         <td>
                             <ul class="list-inline">
                                 <li class="list-inline-item">
-                                    <a href="{{ route(ADMIN . '.promotional_images.edit', $item->id) }}" title="{{ trans('app.edit_title') }}" class="btn btn-primary btn-sm">Edit</a></li>
+                                    <a href="{{ route(ADMIN . '.satker.edit', 1) }}" title="{{ trans('app.edit_title') }}" class="btn btn-primary btn-sm">Edit</a></li>
                                 <li class="list-inline-item">
                                     {!! Form::open([
                                         'class'=>'delete',
-                                        'url'  => route(ADMIN . '.promotional_images.destroy', $item->id),
+                                        'url'  => route(ADMIN . '.satker.destroy', 1),
                                         'method' => 'DELETE',
                                         ])
                                     !!}

@@ -1,17 +1,17 @@
 @extends('admin.default')
 
 @section('page-header')
-	Gambar <small>{{ trans('app.add_new_item') }}</small>
+	Satker <small>{{ trans('app.add_new_item') }}</small>
 @stop
 
 @section('content')
 	{!! Form::open([
-			'action' => ['Admin\PromotionalImagesController@store'],
+			'action' => ['Admin\SatkerController@store'],
 			'files' => true
 		])
 	!!}
 
-		@include('admin.images.form')
+		@include('admin.satker.form')
 
 		<button type="submit" class="btn btn-primary">{{ trans('app.add_button') }}</button>
 

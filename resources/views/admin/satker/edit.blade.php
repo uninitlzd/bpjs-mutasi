@@ -1,18 +1,18 @@
 @extends('admin.default')
 
 @section('page-header')
-	Gambar <small>{{ trans('app.update_item') }}</small>
+	Satker <small>{{ trans('app.update_item') }}</small>
 @stop
 
 @section('content')
 	{!! Form::model($promotionalImages, [
-			'action' => ['Admin\PromotionalImagesController@update', $promotionalImages->id],
+			'action' => ['Admin\SatkerController@update', $promotionalImages->id],
 			'method' => 'put',
 			'files' => true
 		])
 	!!}
 
-		@include('admin.images.form')
+		@include('admin.satker.form')
 
 		<button type="submit" class="btn btn-primary">{{ trans('app.edit_button') }}</button>
 

@@ -27,6 +27,7 @@ Route::group(['prefix' => ADMIN, 'as' => ADMIN . '.', 'middleware'=>['auth', 'Ro
     Route::get('submissions/{submission}/feedback', 'SubmissionController@getFeedback')->name('submissions.feedback');
 
     Route::group(['namespace' => 'Admin'], function () {
+        Route::resource('satker','SatkerController');
         Route::resource('qna','QNAController');
         Route::resource('submission_history', 'SubmissionHistoryController');
         Route::get('submissions/{submission}/approve', 'SubmissionHistoryController@approve')->name('submission.approve');
@@ -37,7 +38,7 @@ Route::group(['prefix' => ADMIN, 'as' => ADMIN . '.', 'middleware'=>['auth', 'Ro
         Route::resource('news', 'NewsController');
     });
 
-    Route::get('/chat', 'Admin\ChatController@index');
+    Route::get('/chat', 'Admin\ChatController@index')->name('get.chat');
 });
 
 Route::get('/', function () {
@@ -57,11 +58,6 @@ Route::get('home', function () {
     $images = PromotionalImages::get();
     return view('welcome', compact('news', 'images'));
 });
-
-Route::group(['prefix' => 'api', 'namespace' => 'Api'], function () {
-   Route::get('satker', 'SatkerController@index');
-});
-
 
 Route::get('test', function () {
     echo 'test';

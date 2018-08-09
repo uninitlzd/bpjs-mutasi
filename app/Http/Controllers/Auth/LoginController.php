@@ -40,17 +40,9 @@ class LoginController extends Controller
 
     protected function validateLogin(Request $request)
     {
-        if (config('app.env') === 'local') {
-            $this->validate($request, [
-                $this->username() => 'required|string',
-                'password' => 'required|string',
-            ]);
-        } else {
-            $this->validate($request, [
-                $this->username() => 'required|string',
-                'password' => 'required|string',
-                'g-recaptcha-response'=>'required|recaptcha'
-            ]);
-        }
+        $this->validate($request, [
+            $this->username() => 'required|string',
+            'password' => 'required|string',
+        ]);
     }
 }
