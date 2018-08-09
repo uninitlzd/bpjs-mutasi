@@ -33,7 +33,8 @@ class SatkerController extends Controller
     {
         $departemen = DepartemenSatker::pluck('nama', 'id');
         $status = StatusSatker::pluck('deskripsi', 'id');
-        return view('admin.satker.create', compact('departemen', 'status'));
+        $satker = new Satker();
+        return view('admin.satker.create', compact('departemen', 'status', 'satker'));
     }
 
     /**
