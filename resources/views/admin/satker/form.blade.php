@@ -4,13 +4,29 @@
 
             {{ csrf_field() }}
 
-            {!! Form::mySelect('departemen_satker_id', 'Departemen', $departemen, $satker->departemen->id) !!}
+            @if(isset($satker))
+
+                {!! Form::mySelect('departemen_satker_id', 'Departemen', $departemen, $satker->departemen->id) !!}
+
+            @else
+
+                {!! Form::mySelect('departemen_satker_id', 'Departemen', $departemen) !!}
+
+            @endif
 
             {!! Form::myInput('text', 'kode', 'Kode Satuan Kerja') !!}
 
             {!! Form::myInput('text', 'nama', 'Nama Satuan Kerja') !!}
 
-            {!! Form::mySelect('status_satker_id', 'Status', $status, $satker->status->id) !!}
+            @if(isset($satker))
+
+                {!! Form::mySelect('status_satker_id', 'Status', $status, $satker->status->id) !!}
+
+            @else
+
+                {!! Form::mySelect('status_satker_id', 'Status', $status) !!}
+
+            @endif
 
             {!! Form::myInput('text', 'alamat', 'Alamat') !!}
 
