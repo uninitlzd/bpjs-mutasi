@@ -13,19 +13,7 @@
 
     </div>
 
-    <style>
-        #firechat-header {
-            display: none;
-        }
 
-        #firechat-tab-content .icon.close.right {
-            display: none;
-        }
-
-        #firechat-tab-content .tab-pane-menu {
-            display: none;
-        }
-    </style>
 
 @endsection
 
