@@ -13,19 +13,7 @@
 
     </div>
 
-    <style>
-        #firechat-header {
-            display: none;
-        }
 
-        #firechat-tab-content .icon.close.right {
-            display: none;
-        }
-
-        #firechat-tab-content .tab-pane-menu {
-            display: none;
-        }
-    </style>
 
 @endsection
 
@@ -47,15 +35,15 @@
         };
 
         firebase.initializeApp(config);
+        login();
 
+        function login() {
+            // Log the user in via Twitter
 
-
-        // Log the user in via Twitter
-
-        firebase.auth().signInWithCustomToken('{{ (string)$firebaseToken }}').catch(function(error) {
-            console.log("Error authenticating user:", error);
-        });
-
+            firebase.auth().signInWithCustomToken('{{ (string)$firebaseToken }}').catch(function(error) {
+                console.log("Error authenticating user:", error);
+            });
+        }
 
         firebase.auth().onAuthStateChanged(function(user) {
             // Once authenticated, instantiate Firechat with the logged in user
@@ -76,12 +64,7 @@
             var chat = new FirechatUI(chatRef, document.getElementById("firechat-wrapper"));
 
             // Set the Firechat user
-            chat.setUser(user.uid, user.displayName, function () {
-                chat.resumeSession();
-            });
-
-
-            chat.enterRoom("-LJSWxDhdpgtVIxJmyil")
+            chat.setUser(user.uid, user.displayName);
         }
     </script>
 @endsection
