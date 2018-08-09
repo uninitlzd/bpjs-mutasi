@@ -13,6 +13,19 @@
 
     </div>
 
+    <style>
+        #firechat-header {
+            display: none;
+        }
+
+        #firechat-tab-content .icon.close.right {
+            display: none;
+        }
+
+        #firechat-tab-content .tab-pane-menu {
+            display: none;
+        }
+    </style>
 
 @endsection
 
@@ -37,11 +50,11 @@
 
 
 
-            // Log the user in via Twitter
+        // Log the user in via Twitter
 
-            firebase.auth().signInWithCustomToken('{{ (string)$firebaseToken }}').catch(function(error) {
-                console.log("Error authenticating user:", error);
-            });
+        firebase.auth().signInWithCustomToken('{{ (string)$firebaseToken }}').catch(function(error) {
+            console.log("Error authenticating user:", error);
+        });
 
 
         firebase.auth().onAuthStateChanged(function(user) {
@@ -68,7 +81,7 @@
             });
 
 
-            chat.enterRoom("-LJSKTT3QZW1dxqdZ0kx")
+            chat.enterRoom("-LJSWxDhdpgtVIxJmyil")
         }
     </script>
 @endsection
