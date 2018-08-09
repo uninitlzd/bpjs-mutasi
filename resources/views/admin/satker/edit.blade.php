@@ -5,8 +5,8 @@
 @stop
 
 @section('content')
-	{!! Form::model($promotionalImages, [
-			'action' => ['Admin\SatkerController@update', $promotionalImages->id],
+	{!! Form::model($satker, [
+			'action' => ['Admin\SatkerController@update', $satker->id],
 			'method' => 'put',
 			'files' => true
 		])

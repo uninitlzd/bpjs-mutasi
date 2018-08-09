@@ -7,6 +7,7 @@ use App\Models\Submission;
 use App\News;
 use App\PromotionalImages;
 use App\QNA;
+use App\Satker;
 use App\User;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
@@ -36,6 +37,7 @@ class RouteServiceProvider extends ServiceProvider
         Route::model('submission_history', Submission::class);
         Route::model('news', News::class);
         Route::model('promotional_image', PromotionalImages::class);
+        Route::model('satker', Satker::class);
 
         parent::boot();
     }

@@ -13,7 +13,9 @@
 
     </div>
 
+    <style>
 
+    </style>
 
 @endsection
 
@@ -65,6 +67,8 @@
 
             // Set the Firechat user
             chat.setUser(user.uid, user.displayName);
+
+            chat.enter
         }
     </script>
 @endsection

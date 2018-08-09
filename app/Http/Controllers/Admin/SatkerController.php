@@ -31,8 +31,8 @@ class SatkerController extends Controller
      */
     public function create()
     {
-        $departemen = DepartemenSatker::get();
-        $status = StatusSatker::get();
+        $departemen = DepartemenSatker::pluck('nama', 'id');
+        $status = StatusSatker::pluck('deskripsi', 'id');
         return view('admin.satker.create', compact('departemen', 'status'));
     }
 
@@ -68,7 +68,9 @@ class SatkerController extends Controller
      */
     public function edit(Satker $satker)
     {
-        //
+        $departemen = DepartemenSatker::pluck('nama', 'id');
+        $status = StatusSatker::pluck('deskripsi', 'id');
+        return view('admin.satker.edit', compact('satker', 'departemen', 'status'));
     }
 
     /**
@@ -80,7 +82,9 @@ class SatkerController extends Controller
      */
     public function update(Request $request, Satker $satker)
     {
-        //
+        $satker->update($request->except('_token'));
+
+        return redirect()->route('admin.satker.index')->with('success', 'Data Satker berhasil diubah');
     }
 
     /**
@@ -91,6 +95,8 @@ class SatkerController extends Controller
      */
     public function destroy(Satker $satker)
     {
-        //
+        $satker->delete();
+
+        return redirect()->route('admin.satker.index')->with('success', 'Data Satker berhasil dihapus');
     }
 }

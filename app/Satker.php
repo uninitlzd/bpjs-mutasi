@@ -15,4 +15,9 @@ class Satker extends Model
     {
         return $this->belongsTo(DepartemenSatker::class, 'departemen_satker_id');
     }
+
+    public function status()
+    {
+        return $this->belongsTo(StatusSatker::class, 'status_satker_id');
+    }
 }

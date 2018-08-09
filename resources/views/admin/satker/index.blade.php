@@ -48,11 +48,11 @@
                         <td>
                             <ul class="list-inline">
                                 <li class="list-inline-item">
-                                    <a href="{{ route(ADMIN . '.satker.edit', 1) }}" title="{{ trans('app.edit_title') }}" class="btn btn-primary btn-sm">Edit</a></li>
+                                    <a href="{{ route(ADMIN . '.satker.edit', $item->id) }}" title="{{ trans('app.edit_title') }}" class="btn btn-primary btn-sm">Edit</a></li>
                                 <li class="list-inline-item">
                                     {!! Form::open([
                                         'class'=>'delete',
-                                        'url'  => route(ADMIN . '.satker.destroy', 1),
+                                        'url'  => route(ADMIN . '.satker.destroy', $item->id),
                                         'method' => 'DELETE',
                                         ])
                                     !!}
