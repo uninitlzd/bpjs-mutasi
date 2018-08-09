@@ -3,8 +3,11 @@
 namespace App\Http\Controllers\Admin;
 
 use App\DepartemenSatker;
+use App\Http\Requests\FeedbackStore;
+use App\Http\Requests\SatkerStore;
 use App\PromotionalImages;
 use App\Satker;
+use App\StatusSatker;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -17,8 +20,8 @@ class SatkerController extends Controller
      */
     public function index()
     {
-        $images = new PromotionalImages();
-        return view('admin.satker.index', compact('images'));
+        $satker = Satker::get();
+        return view('admin.satker.index', compact('satker'));
     }
 
     /**
@@ -29,7 +32,8 @@ class SatkerController extends Controller
     public function create()
     {
         $departemen = DepartemenSatker::get();
-        return view('admin.satker.create', compact('departemen'));
+        $status = StatusSatker::get();
+        return view('admin.satker.create', compact('departemen', 'status'));
     }
 
     /**
@@ -38,9 +42,11 @@ class SatkerController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(SatkerStore $request)
     {
-        //
+        Satker::create($request->except('_token'));
+
+        return redirect()->route('admin.satker.index')->with('success', 'Satker ditambahkan');
     }
 
     /**

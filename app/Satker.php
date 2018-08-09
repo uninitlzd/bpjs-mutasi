@@ -9,6 +9,7 @@ class Satker extends Model
     protected $table = 'satker';
     protected $primaryKey = 'id';
     protected $guarded = ['id'];
+    public $timestamps = false;
 
     public function departemen()
     {

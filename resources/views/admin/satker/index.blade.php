@@ -17,23 +17,33 @@
         <table id="dataTable" class="table table-striped table-bordered" cellspacing="0" width="100%">
             <thead>
                 <tr>
-                    <th>Gambar</th>
+                    <th>Kode</th>
+                    <th>Nama</th>
+                    <th>Alamat</th>
                     <th>Actions</th>
                 </tr>
             </thead>
 
             <tfoot>
                 <tr>
-                    <th>Gambar</th>
+                    <th>Kode</th>
+                    <th>Nama</th>
+                    <th>Alamat</th>
                     <th>Actions</th>
                 </tr>
             </tfoot>
 
             <tbody>
-                @foreach ($images as $item)
+                @foreach ($satker as $item)
                     <tr>
                         <td>
-                            <img src="{{ asset(config('variables.satker.public')) }}" width="400px" alt="">
+                            {{ $item->kode }}
+                        </td>
+                        <td>
+                            {{ $item->nama }}
+                        </td>
+                        <td>
+                            {{ $item->alamat }}
                         </td>
                         <td>
                             <ul class="list-inline">

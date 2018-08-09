@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class FeedbackStore extends FormRequest
+class SatkerStore extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,10 +24,10 @@ class FeedbackStore extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required',
-            'alamat' => 'required',
-            'email' => 'required',
-            'pesan' => 'required',
+            'departemen_satker_id' => 'required',
+            'nama' => 'required',
+            'status_satker_id' => 'required',
+            'kode' => 'required|unique:satker,kode',
         ];
     }
 }

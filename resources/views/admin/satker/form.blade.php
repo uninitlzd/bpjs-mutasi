@@ -6,7 +6,7 @@
 
             <div class="form-group{{ $errors->has('departemen') ? ' has-error' : '' }}">
                 <label for="departemen" class="text-normal text-dark">Departemen</label>
-                <select name="departemen" id="departemen-selection" class="form-control js-states ">
+                <select name="departemen_satker_id" id="departemen-selection" class="form-control js-states ">
                     @foreach($departemen as $item)
                         <option value="{{ $item->id }}"> {{ $item->nama  }} </option>
                     @endforeach
@@ -18,18 +18,55 @@
                 @endif
             </div>
 
-            <div class="form-group{{ $errors->has('satker') ? ' has-error' : '' }}">
-                <label for="satker" class="text-normal text-dark">Satuan Kerja</label>
-                <select name="satker" id="satker-selection" class="form-control js-states ">
-                    <option></option>
+            <div class="form-group{{ $errors->has('kode') ? ' has-error' : '' }}">
+                <label for="kode" class="text-normal text-dark">Kode Satuan Kerja</label>
+                <input type="text" class="form-control" name="kode" placeholder="Kode satuan kerja">
+            </div>
+
+            <div class="form-group{{ $errors->has('nama') ? ' has-error' : '' }}">
+                <label for="nama" class="text-normal text-dark">Nama Satuan Kerja</label>
+                <input type="text" class="form-control" name="nama" placeholder="Nama satuan kerja">
+            </div>
+
+            <div class="form-group{{ $errors->has('status') ? ' has-error' : '' }}">
+                <label for="status" class="text-normal text-dark">Status Satker</label>
+                <select name="status_satker_id" id="status-selection" class="form-control js-states ">
+                    @foreach($status as $item)
+                        <option value="{{ $item->id }}"> {{ $item->deskripsi  }} </option>
+                    @endforeach
                 </select>
-                @if ($errors->has('satker'))
+                @if ($errors->has('status'))
                     <span class="form-text text-danger">
-                    <small>{{ $errors->first('satker') }}</small>
+                    <small>{{ $errors->first('status') }}</small>
                 </span>
                 @endif
             </div>
 
+            <div class="form-group">
+                <label for="alamat" class="text-normal text-dark">Alamat Satuan Kerja</label>
+                <input type="text" class="form-control" name="alamat" placeholder="Alamat satuan kerja">
+            </div>
+
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="rt/rw" class="text-normal text-dark">RT/RW</label>
+                        <input type="text" class="form-control" name="rt/rw" placeholder="RT/RW">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="kode_pos" class="text-normal text-dark">Kode Pos</label>
+                        <input type="text" class="form-control" name="kode_pos" placeholder="Kode Pos">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="no_telp" class="text-normal text-dark">No Telp</label>
+                        <input type="text" class="form-control" name="no_telp" placeholder="No Telp">
+                    </div>
+                </div>
+            </div>
 
         </div>
 	</div>
@@ -44,42 +81,6 @@
 
         $(document).ready(function() {
 
-
-            $('#satker-selection').select2({
-                placeholder: "Pilih Departemen",
-                ajax : {
-                    url : '/api/satker',
-                    dataType : 'json',
-                    delay : 200,
-                    data : function(params){
-                        return {
-                            departemen_id: $('#departemen-selection').val(),
-                            q : params.term,
-                            page : params.page
-                        };
-                    },
-                    processResults : function(data, params){
-                        params.page = params.page || 1;
-                        return {
-                            results : data.data,
-                            pagination: {
-                                more : (params.page  * 10) < data.total
-                            }
-                        };
-                    }
-                },
-                minimumInputLength : 0,
-                templateResult : function (satker){
-                    if(satker.loading) return satker.nama;
-                    var markup = satker.nama;
-                    return markup;
-                },
-                templateSelection : function(satker)
-                {
-                    return satker.nama;
-                },
-                escapeMarkup : function(markup){ return markup; }
-            });
 
         });
     </script>
