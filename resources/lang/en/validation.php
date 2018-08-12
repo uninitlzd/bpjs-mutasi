@@ -130,6 +130,8 @@ return [
         ],
     ],
 
+    'recaptcha'=>'Please ensure that you are a human!',
+
     /*
     |--------------------------------------------------------------------------
     | Custom Validation Attributes

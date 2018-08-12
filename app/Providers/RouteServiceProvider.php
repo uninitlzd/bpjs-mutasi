@@ -2,6 +2,12 @@
 
 namespace App\Providers;
 
+use App\Feedback;
+use App\Models\Submission;
+use App\News;
+use App\PromotionalImages;
+use App\QNA;
+use App\Satker;
 use App\User;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
@@ -25,6 +31,13 @@ class RouteServiceProvider extends ServiceProvider
     public function boot()
     {
         Route::model('users', User::class);
+        Route::model('feedback', Feedback::class);
+        Route::model('qna', QNA::class);
+        Route::model('submission', Submission::class);
+        Route::model('submission_history', Submission::class);
+        Route::model('news', News::class);
+        Route::model('promotional_image', PromotionalImages::class);
+        Route::model('satker', Satker::class);
 
         parent::boot();
     }

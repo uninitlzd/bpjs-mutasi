@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Http\Request;
+use Kreait\Firebase\Factory;
+use Kreait\Firebase\ServiceAccount;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,4 +17,18 @@ use Illuminate\Http\Request;
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
+});
+
+Route::get('/me', function (Request $request) {
+
+})->middleware('auth:api');
+
+
+Route::get('/firebase/auth', function (Request $request) {
+
+})->middleware('auth:api');
+
+Route::group(['namespace' => 'Api'], function () {
+    Route::get('satker', 'SatkerController@index');
+    Route::get('departemen', 'DepartemenSatkerController@index');
 });

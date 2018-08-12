@@ -17,7 +17,7 @@ class FeedbackController extends Controller
      */
     public function index()
     {
-        $feedback=Feedback::get();
+        $feedback = Feedback::get();
         return view('admin.feedback.index', compact('feedback'));
     }
 
@@ -65,7 +65,7 @@ class FeedbackController extends Controller
      */
     public function edit(Feedback $feedback)
     {
-        return view('admin.feedback.edit',compact('feedback'));
+        return view('admin.feedback.edit', compact('feedback'));
     }
 
     /**

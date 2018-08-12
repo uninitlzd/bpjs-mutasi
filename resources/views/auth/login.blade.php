@@ -4,6 +4,7 @@
 
     <h4 class="fw-300 c-grey-900 mB-40">Login</h4>
     <form class="form-horizontal" method="POST" action="{{ route('login') }}">
+
         {{ csrf_field() }}
 
         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
@@ -46,6 +47,9 @@
         <div class="peers ai-c jc-sb fxw-nw">
             <div class="peer">
                 <a href="/register" class="btn btn-link">Buat Akun Baru</a>
+            </div>
+            <div class="peer">
+                <a href="{{ route('password.request') }}" class="btn btn-link">Lupa Password</a>
             </div>
         </div>
     </form>

@@ -4,6 +4,7 @@
 
     <h4 class="fw-300 c-grey-900 mB-40">Register</h4>
     <form method="POST" action="{{ route('register') }}">
+
         {{ csrf_field() }}
 
         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">

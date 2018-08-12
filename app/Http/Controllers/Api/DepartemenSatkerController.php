@@ -13,9 +13,9 @@ class DepartemenSatkerController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return DepartemenSatker::get();
+        return DepartemenSatker::where('nama','LIKE','%'.$request->q.'%')->paginate(10);
     }
 
     /**

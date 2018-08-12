@@ -14,14 +14,15 @@
     <link href="{{ asset('/css/app.css') }}" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="{{ asset('css/select2-bootstrap4.min.css') }}">
+    <script src='https://www.google.com/recaptcha/api.js'></script>
+
 </head>
 <body class="app">
 
 <div class="peers ai-s fxw-nw h-100vh">
-    <div class="d-n@sm- peer peer-greed h-100 pos-r bgr-n bgpX-c bgpY-c bgsz-cv"
-         style='background-image: url({{ asset('images/login-bg.jpg') }})'>
+    <div class="d-n@sm- peer peer-greed h-100 pos-r bgr-n bgpX-c bgpY-c bgsz-cv">
         <div class="pos-a centerXY">
-
+            <img src="{{ asset('ui/images/logoBPJS.png') }}" alt="">
         </div>
     </div>
     <div class="col-12 col-md-4 peer pX-40 pY-80 h-100 bgc-white scrollable pos-r" style='min-width: 320px;'>

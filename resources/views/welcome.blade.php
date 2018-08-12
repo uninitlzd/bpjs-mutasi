@@ -1,155 +1,126 @@
-<!DOCTYPE HTML>
-<!--
-    Hielo by TEMPLATED
-    templated.co @templatedco
-    Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
--->
-<html>
-    <head>
-        <title>SEDAPEN BPJS Kesehatan</title>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="stylesheet" href="{{ asset('ui/assets/css/main.css') }}" />
-    </head>
-    <body>
+<!doctype html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sedapen BPJS</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
 
-        <!-- Header -->
-            <header id="header" class="alt">
-                <div class="logo"><a href="{{ url('/') }}">SEDAPEN <span>BPJS Kesehatan</span></a></div>
-                <a href="#menu">Menu</a>
-            </header>
+<div class="container">
+    <nav class="navbar navbar-expand-lg navbar-light bg-white">
+        <a class="navbar-brand" href="{{ url('/') }}">
+            <img src="{{ asset('ui/images/logo-bpjs-horizontal.png') }}" alt="" height="30px">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-        <!-- Nav -->
-            <nav id="menu">
-                <ul class="links">
-                    <li><a href="{{ url('/') }}">Home</a></li>
-                    <li><a href="{{ url('/admin') }}">FORM</a></li>
-                    <li><a href="{{ url('/faq') }}">QnA</a></li>
-                </ul>
-            </nav>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="{{ url('/') }}">Homepage <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url('/faq') }}">Q&A</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url('/login') }}">
+                        Login
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url('/register') }}">
+                        Register
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
 
-        <!-- Banner -->
-            <section class="banner full">
-                <article>
-                    <img src="{{ asset('ui/images/logobpjs.jpg') }}" alt="" />
-                    <div class="inner">
+    <div class="row" style="height: 80vh;">
+        <div class="col-md-4 text-center my-auto">
+            <h2>SEDAPEN</h2>
+            <h4>Sistem Elektronik Data Penyelenggara Negara</h4>
+        </div>
+        <div class="col-md-8 my-auto">
+            <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner" style="max-height: 400px">
+                    <div class="carousel-item active">
+                        <img class="d-block w-100" src="{{ asset('ui/images/bpjs1.jpg') }}" alt="First slide">
                     </div>
-                </article>
-                <article>
-                    <img src="{{ asset('ui/images/bpjs1.jpg') }}" alt="" />
-                    <div class="inner">
+                    <div class="carousel-item">
+                        <img class="d-block w-100" src="{{ asset('ui/images/bpjs2.jpg') }}" alt="First slide">
                     </div>
-                </article>
-                <article>
-                    <img src="{{ asset('ui/images/bpjs2.jpg') }}" alt="" />
-                    <div class="inner">
+                    <div class="carousel-item">
+                        <img class="d-block w-100" src="{{ asset('ui/images/bpjs3.jpg') }}" alt="First slide">
                     </div>
-                </article>
-                <article>
-                    <img src="{{ asset('ui/images/bpjs3.jpg') }}"  alt="" />
-                    <div class="inner">
+                    <div class="carousel-item">
+                        <img class="d-block w-100" src="{{ asset('ui/images/bpjs4.jpg') }}" alt="First slide">
                     </div>
-                </article>
-                <article>
-                    <img src="{{ asset('ui/images/bpjs4.jpg') }}"  alt="" />
-                    <div class="inner">
+                    <div class="carousel-item">
+                        <img class="d-block w-100" src="{{ asset('ui/images/bpjs5.jpg') }}" alt="First slide">
                     </div>
-                </article>
-            </section>
-
-        <!-- One -->
-            <section id="one" class="wrapper style2">
-                <div class="inner">
-                    <div class="grid-style">
-
-                        <div>
-                            <div class="box">
-                                <div class="image fit">
-                                    <img src="{{ asset('ui/images/bpjs2.jpg') }}" alt="" />
-                                </div>
-                                <div class="content">
-                                    <header class="align-center">
-                                        <p>BPJS Kesehatan</p>
-                                        <h2>Kami pahlawan bagi sesama</h2>
-                                    </header>
-                                    <p> Dengan menjadi peserta program JKN-KIS berarti Anda telah menjadi pahlawan bagi sesama demi Indonesia yang sehat dan sejahtera.
-                                    Mari lindungi diri sendiri dan orang lain dengan gotong royong semua tertolong.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="box">
-                                <div class="image fit">
-                                    <img src="{{ asset('ui/images/bpjs3.jpg') }}" alt="" />
-                                </div>
-                                <div class="content">
-                                    <header class="align-center">
-                                        <p>BPJS Kesehatan</p>
-                                        <h2>50 tahun Gotong Royong Untuk Indonesia</h2>
-                                    </header>
-                                    <p>DAMAR CANTIK 50 tahun Gotong Royong Untuk Indonesia</p>
-                                </div>
-                            </div>
-                        </div>
-
+                    <div class="carousel-item">
+                        <img class="d-block w-100" src="{{ asset('ui/images/bpjs6.jpg') }}" alt="First slide">
                     </div>
                 </div>
-            </section>
+                <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div>
+    </div>
 
-        <!-- Two -->
-            <section id="three" class="wrapper style2">
-                <div class="inner">
-                    <header class="align-center">
-                        <p class="special">Badan Penyelenggara Jaminan Sosial Kesehatan</p>
-                        <h2>SEDAPEN</h2>
-                    </header>
-                    <div class="gallery">
-                        <div>
-                            <div class="image fit">
-                                <a href="#"><img src="{{ asset('ui/images/bpjs1.jpg') }}" alt="" /></a>
+    <div class="row text-center mb-5">
+        <div class="col-md-12 text-center mb-5">
+            <h3>Berita</h3>
+        </div>
+        @foreach($news as $item)
+
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="row">
+                        <div class="card-body">
+                            <div class="col-md-12">
+                                <img src="{{ asset(config('variables.news.public').$item->image) }}" alt=""
+                                     style="width: 100%"/>
                             </div>
-                        </div>
-                        <div>
-                            <div class="image fit">
-                                <a href="#"><img src="{{ asset('ui/images/bpjs2.jpg') }}" alt="" /></a>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="image fit">
-                                <a href="#"><img src="{{ asset('ui/images/bpjs3.jpg') }}" alt="" /></a>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="image fit">
-                                <a href="#"><img src="{{ asset('ui/images/bpjs4.jpg') }}" alt="" /></a>
+                            <div class="col-md-12">
+                                <header class="text-center mt-3">
+                                    <h4>{{ $item->title }}</h4>
+                                </header>
+                                <p>{{ $item->content }}</p>
                             </div>
                         </div>
                     </div>
                 </div>
-            </section>
+            </div>
+
+        @endforeach
+    </div>
 
 
-        <!-- Footer -->
-            <footer id="footer">
-                <div class="container">
-                    <ul class="icons">
-                        <li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
-                        <li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
-                        <li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
-                        <li><a href="#" class="icon fa-envelope-o"><span class="label">Email</span></a></li>
-                    </ul>
-                </div>
-                <div class="copyright">
-                    &copy; BPJS. All rights reserved.
-                </div>
-            </footer>
+</div>
 
-        <!-- Scripts -->
-            <script src="{{ asset('ui/assets/js/jquery.min.js') }}"></script>
-            <script src="{{ asset('ui/assets/js/jquery.scrollex.min.js') }}"></script>
-            <script src="{{ asset('ui/assets/js/skel.min.js') }}"></script>
-            <script src="{{ asset('ui/assets/js/util.js') }}"></script>
-            <script src="{{ asset('ui/assets/js/main.js') }}"></script>
-
-    </body>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+</body>
 </html>

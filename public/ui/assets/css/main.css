@@ -3524,6 +3524,10 @@
 			}
 
 		}
+.judulmenu {
+	font-size: 55px !important;
+	color: green !important;
+}
 
 	.gallery {
 		width: 100%;
@@ -3776,6 +3780,7 @@
 					font-family: FontAwesome;
 					font-style: normal;
 					font-weight: normal;
+					font-size: large;
 					text-transform: none !important;
 				}
 
@@ -3790,9 +3795,12 @@
 			}
 
 			#header > a:last-child {
+				font-size: 16px;
 				padding-right: 1.25em;
 			}
-
+.linkmenu {
+	font-size: 25px !important;
+}
 			@media screen and (max-width: 736px) {
 
 				#header > a {

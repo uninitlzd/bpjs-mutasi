@@ -14,6 +14,9 @@
     <!-- Styles -->
 	<link href="{{ mix('/css/app.css') }}" rel="stylesheet">
 
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="{{ asset('css/select2-bootstrap4.min.css') }}">
+
 	@yield('css')
 
 </head>

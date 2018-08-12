@@ -25,8 +25,8 @@ class FeedbackStore extends FormRequest
     {
         return [
             'name' => 'required',
-            'email' => 'required',
             'alamat' => 'required',
+            'email' => 'required',
             'pesan' => 'required',
         ];
     }

@@ -15,7 +15,13 @@ class SatkerController extends Controller
      */
     public function index(Request $request)
     {
-        return Satker::where('nama','LIKE','%'.$request->q.'%')->paginate(10);;
+        if (isset($request->departemen_id)) {
+            return Satker::where('nama','LIKE','%'.$request->q.'%')
+                ->where('departemen_satker_id', $request->departemen_id)
+                ->paginate(10);
+        } else {
+            return Satker::where('nama','LIKE','%'.$request->q.'%')->paginate(10);
+        }
     }
 
     /**

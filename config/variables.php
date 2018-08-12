@@ -49,5 +49,25 @@ return [
     'KODE' => [
         'KC' => 1301,
         'DATI2' => 0217
-    ]
+    ],
+
+    'submissions' => [
+        'public' => 'storage/submissions/',
+        'folder' => 'submissions',
+    ],
+
+    'submissions_feedback' => [
+        'public' => 'storage/submissions_feedback/',
+        'folder' => 'submissions_feedback',
+    ],
+
+    'promotional_images' => [
+        'public' => 'storage/promotional_images/',
+        'folder' => 'promotional_images',
+    ],
+
+    'news' => [
+        'public' => 'storage/news/',
+        'folder' => 'news',
+    ],
 ];
