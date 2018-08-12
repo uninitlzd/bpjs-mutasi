@@ -43,7 +43,11 @@ class DashboardController extends Controller
         foreach ($presentaseJenis as $key => $value)
         {
             $jumlah = $submissions->where('code', $key)->count();
-            $presentaseJenis[$key] = ($jumlah / $data) * 100;
+            if ($data == 0) {
+                $presentaseJenis[$key] = 0;
+            } else {
+                $presentaseJenis[$key] = ($jumlah / $data) * 100;
+            }
         }
 
 

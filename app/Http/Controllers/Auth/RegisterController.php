@@ -83,7 +83,8 @@ class RegisterController extends Controller
             'nik' => $data['nik'],
             'password' => $password,
             'role' => RoleCode::SATKER_ADMIN,
-            'satker_id' => $data['satker']
+            'satker_id' => $data['satker'],
+            'api_token' => sha1(time())
         ]);
 
         Mail::to($user->email)->send(new SatkerPasswordCreated($user, $password));

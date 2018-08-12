@@ -126,4 +126,11 @@ class SubmissionHistoryController extends Controller
 
         return redirect()->route('admin.submission_history.index')->with('Success', 'Data' . $submission->id . 'ditolak');
     }
+
+    public function periksa(Submission $submission){
+        $submission->admin_id = auth()->user()->id;
+        $submission->save();
+        return redirect()->route('admin.submission_history.index');
+    }
+
 }
