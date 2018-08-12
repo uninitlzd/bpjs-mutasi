@@ -9,7 +9,7 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        $data = Submission::get()->count();
+        $data = (Submission::get()->count()) ? Submission::get()->count() : 0 ;
         $dataBeingProcessed = Submission::where('status', Submission::ON_PROGRESS)->get()->count();
         $dataAccepted = Submission::where('status', Submission::APPROVED)->get()->count();
         $dataRejected = Submission::where('status', Submission::REJECTED)->get()->count();
@@ -43,7 +43,11 @@ class DashboardController extends Controller
         foreach ($presentaseJenis as $key => $value)
         {
             $jumlah = $submissions->where('code', $key)->count();
-            $presentaseJenis[$key] = ($jumlah / $data) * 100;
+            if ($data != 0) {
+                $presentaseJenis[$key] = ($jumlah / $data) * 100;
+            } else {
+                $presentaseJenis[$key] = 0;
+            }
         }
 
 
