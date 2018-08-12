@@ -3,29 +3,30 @@
 namespace App\Http\Controllers;
 
 use App\Models\Submission;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $data = (Submission::get()->count()) ? Submission::get()->count() : 0 ;
-        $dataBeingProcessed = Submission::where('status', Submission::ON_PROGRESS)->get()->count();
-        $dataAccepted = Submission::where('status', Submission::APPROVED)->get()->count();
-        $dataRejected = Submission::where('status', Submission::REJECTED)->get()->count();
+        $month = ($request->month) ? $request->month: Carbon::now()->month;
+        $year = ($request->year) ? $request->year : Carbon::now()->year;
 
-        /*1 => 'IDENTITAS',
-        2 => 'ALAMAT',
-        3 => 'GAJI',
-        5 => 'NON AKTIF AKHIR BULAN',
-        6 => 'NON AKTIF MENINGGAL',
-        8 => 'PINDAH SATUAN KERJA',
-        9 => 'NIP',
-        991 => 'DATA BARU',
-        992 => 'PINDAH FASKES',
-        993 => 'TAMBAH ANGGOTA KELUARGA'*/
+        if (isset($request->month)) {
+            $submissions = Submission::whereMonth('created_at', $month)
+                                        ->whereYear('created_at', $year)
+                                         ->get();
+        } else  {
+            $submissions = Submission::get();
+        }
 
-        $submissions = Submission::get();
+
+        $data = ($submissions->count()) ? $submissions->count() : 0 ;
+        $dataBeingProcessed = $submissions->where('status', Submission::ON_PROGRESS)->count();
+        $dataAccepted = $submissions->where('status', Submission::APPROVED)->count();
+        $dataRejected = $submissions->where('status', Submission::REJECTED)->count();
+
         $presentaseJenis = [
             1 => 0,
             2 => 0,
@@ -39,7 +40,6 @@ class DashboardController extends Controller
             993 => 0
         ];
 
-
         foreach ($presentaseJenis as $key => $value)
         {
             $jumlah = $submissions->where('code', $key)->count();
@@ -50,7 +50,6 @@ class DashboardController extends Controller
             }
         }
 
-
-        return view('admin.dashboard.index', compact('data', 'dataAccepted', 'dataBeingProcessed', 'dataRejected', 'presentaseJenis'));
+        return view('admin.dashboard.index', compact('data', 'dataAccepted', 'dataBeingProcessed', 'dataRejected', 'presentaseJenis', 'month', 'year'));
     }
 }
