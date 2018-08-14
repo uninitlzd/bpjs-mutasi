@@ -3,13 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Models\Submission;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
 {
     public function index(Request $request)
     {
-        $month = ($request->month) ? $request->month: Carbon::now()->month;
+        $month = ($request->month) ? $request->month : Carbon::now()->month;
         $year = ($request->year) ? $request->year : Carbon::now()->year;
 
         if (isset($request->month)) {
