@@ -48,6 +48,6 @@ class DashboardController extends Controller
         }
 
 
-        return view('admin.dashboard.index', compact('data', 'dataAccepted', 'dataBeingProcessed', 'dataRejected', 'presentaseJenis'));
+        return view('admin.dashboard.index', compact('data', 'dataAccepted', 'dataBeingProcessed', 'dataRejected', 'presentaseJenis', 'month', 'year'));
     }
 }
