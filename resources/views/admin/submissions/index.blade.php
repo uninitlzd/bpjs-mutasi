@@ -37,6 +37,7 @@
                 <th>Status</th>
                 <th>File</th>
                 <th>Tanggal</th>
+                <th>Status Periksa</th>
                 <th>Actions</th>
             </tr>
             </thead>
@@ -48,6 +49,7 @@
                 <th>Status</th>
                 <th>File</th>
                 <th>Tanggal</th>
+                <th>Status Periksa</th>
                 <th>Actions</th>
             </tr>
             </tfoot>
@@ -76,6 +78,11 @@
 
                     <td>{{ $item->created_at }}</td>
 
+                    @if($item->admin_id == 0)
+                    <td><a class="btn btn-info" href="{{ route('admin.submission.periksa',$item) }}" >Periksa File</a></td>
+                    @else
+                        <td>sudah diperiksa</td>
+                        @endif
                     <td>
                         <ul class="list-inline">
                             @if($item->status == 1)

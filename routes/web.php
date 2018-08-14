@@ -36,9 +36,12 @@ Route::group(['prefix' => ADMIN, 'as' => ADMIN . '.', 'middleware'=>['auth', 'Ro
 
         Route::resource('promotional_images', 'PromotionalImagesController');
         Route::resource('news', 'NewsController');
+
+        Route::get('submissions/{submission}/periksa', 'SubmissionHistoryController@periksa')->name('submission.periksa');
     });
 
     Route::get('/chat', 'Admin\ChatController@index')->name('get.chat');
+
 });
 
 Route::get('/', function () {

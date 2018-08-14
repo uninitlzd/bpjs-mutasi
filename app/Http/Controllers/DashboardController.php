@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Submission;
-use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -40,16 +39,14 @@ class DashboardController extends Controller
             993 => 0
         ];
 
+
         foreach ($presentaseJenis as $key => $value)
         {
             $jumlah = $submissions->where('code', $key)->count();
-            if ($data != 0) {
-                $presentaseJenis[$key] = ($jumlah / $data) * 100;
-            } else {
-                $presentaseJenis[$key] = 0;
-            }
+            $presentaseJenis[$key] = ($jumlah / $data) * 100;
         }
 
-        return view('admin.dashboard.index', compact('data', 'dataAccepted', 'dataBeingProcessed', 'dataRejected', 'presentaseJenis', 'month', 'year'));
+
+        return view('admin.dashboard.index', compact('data', 'dataAccepted', 'dataBeingProcessed', 'dataRejected', 'presentaseJenis'));
     }
 }
