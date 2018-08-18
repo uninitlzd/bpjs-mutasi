@@ -65,3 +65,5 @@ Route::get('home', function () {
 Route::get('test', function () {
     echo 'test';
 });
+
+Route::get('news/{id}', 'NewsController@show')->name('news.single');

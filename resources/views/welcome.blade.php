@@ -11,8 +11,8 @@
 </head>
 <body>
 
-<div class="container">
-    <nav class="navbar navbar-expand-lg navbar-light bg-white">
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-white" style="border-bottom: 1px solid black">
         <a class="navbar-brand" href="{{ url('/') }}">
             <img src="{{ asset('ui/images/logo-bpjs-horizontal.png') }}" alt="" height="30px">
         </a>
@@ -43,14 +43,20 @@
         </div>
     </nav>
 
-    <div class="row" style="height: 80vh;">
-        <div class="col-md-4 text-center my-auto">
-            <h2>SEDAPEN</h2>
-            <h4>Sistem Elektronik Data Penyelenggara Negara</h4>
+
+    <div class="row" style="">
+        <div class="col-md-1 my-auto">
+
         </div>
+
+        <div class="col-md-3 my-auto">
+            <h2>SEDAPEN</h2>
+            <p style="font-size: 21pt">Sistem Elektronik Data Penyelenggara Negara</p>
+        </div>
+
         <div class="col-md-8 my-auto">
             <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-                <div class="carousel-inner" style="max-height: 400px">
+                <div class="carousel-inner" style="">
                     <div class="carousel-item active">
                         <img class="d-block w-100" src="{{ asset('ui/images/bpjs1.jpg') }}" alt="First slide">
                     </div>
@@ -82,6 +88,7 @@
         </div>
     </div>
 
+    <div class="container">
     <div class="row text-center mb-5">
         <div class="col-md-12 text-center mb-5">
             <h3>Berita</h3>
@@ -100,7 +107,8 @@
                                 <header class="text-center mt-3">
                                     <h4>{{ $item->title }}</h4>
                                 </header>
-                                <p>{{ $item->content }}</p>
+                                <p>{{ str_limit($item->content, 200) }}</p>
+                                <a href="{{ route('news.single', $item->id) }}">Read More</a>
                             </div>
                         </div>
                     </div>
